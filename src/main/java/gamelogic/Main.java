@@ -10,10 +10,21 @@ public class Main {
     private static Logger logger = LoggerFactory.getLogger(Main.class);
     private static int numberOfFields;
     private static int numberOfMines;
+    private static Field[][] field;
 
     public static void main(String[] args){
-        logger.info("Please type in the difficulty you want. easy or medium or hard");
+        logger.trace("Please type in the difficulty you want. easy or normal or hard");
         selectDifficulty();
+
+        field = new Field[numberOfFields][numberOfFields];
+
+        for(int i = 0; i < numberOfFields; i++){
+            for( int j = 0; j < numberOfFields; j++){
+                field[i][j] = new Field();
+            }
+        }
+
+        randomizeMines(field);
         
 
     }
@@ -42,4 +53,24 @@ public class Main {
             selectDifficulty();
         }
   }
+
+
+  private static void randomizeMines(Field[][] field){
+        int randomx;
+        int randomy;
+
+        for( int i = 1; i < numberOfMines; i++){
+            randomx = (int)(Math.random() * numberOfFields);
+            randomy = (int)(Math.random() * numberOfFields);
+
+            if( field[randomx][randomy].isMine() ){
+                i--;
+            }
+            else{
+                field[randomx][randomy].setMine(true);
+            }
+        }
+  }
 }
+
+
