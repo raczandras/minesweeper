@@ -25,9 +25,10 @@ public class Main {
         }
 
         randomizeMines(field);
+        setNeighbours(field);
 
-        print();
-        
+        correctPrint();
+
     }
 
     private static void selectDifficulty(){
@@ -159,6 +160,38 @@ public class Main {
             }
             else{
                 field[randomx][randomy].setMine(true);
+            }
+        }
+  }
+
+  private static void setNeighbours(Field[][] field){
+
+        for( int i = 0; i < field.length; i++){
+            for( int j = 0; j< field.length; j++){
+                if(field[i][j].isMine()){
+
+                    if( i == 0 && j == 0){
+                        field[i+1][j].setNeighborMines( field[i+1][j].getNeighborMines()+1 );
+                        field[i][j+1].setNeighborMines( field[i][j+1].getNeighborMines()+1 );
+                        field[i+1][j+1].setNeighborMines( field[i+1][j+1].getNeighborMines()+1 );
+                    }
+                    else if( i == field.length-1 && j == 0){
+                        field[i-1][j].setNeighborMines( field[i+1][j].getNeighborMines()+1 );
+                        field[i][j+1].setNeighborMines( field[i][j+1].getNeighborMines()+1 );
+                        field[i-1][j+1].setNeighborMines( field[i+1][j+1].getNeighborMines()+1 );
+                    }
+                    else if( i == 0 && j == field.length-1){
+                        field[i+1][j].setNeighborMines( field[i+1][j].getNeighborMines()+1 );
+                        field[i][j-1].setNeighborMines( field[i][j+1].getNeighborMines()+1 );
+                        field[i+1][j-1].setNeighborMines( field[i+1][j+1].getNeighborMines()+1 );
+                    }
+                    else if( i == field.length-1 && j == field.length-1){
+                        field[i-1][j].setNeighborMines( field[i+1][j].getNeighborMines()+1 );
+                        field[i][j-1].setNeighborMines( field[i][j+1].getNeighborMines()+1 );
+                        field[i-1][j-1].setNeighborMines( field[i+1][j+1].getNeighborMines()+1 );
+                    }
+                }
+
             }
         }
   }
