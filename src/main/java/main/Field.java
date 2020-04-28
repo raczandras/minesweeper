@@ -1,4 +1,4 @@
-package fieldSetup;
+package main;
 
 @lombok.Data
 public class Field {
