@@ -1,7 +1,6 @@
 package minefieldSetup;
 
 import main.Field;
-
 import java.util.Scanner;
 
 public class Setup {
@@ -15,10 +14,11 @@ public class Setup {
     }
 
     public static void randomizeMines(Field[][] field){ //Assigns the mines randomly on the minefield
+
         int randomx;
         int randomy;
 
-        for( int i = 1; i < numberOfMines; i++){
+        for( int i = 0; i < numberOfMines; i++){
             randomx = (int)(Math.random() * numberOfFields);
             randomy = (int)(Math.random() * numberOfFields);
 
@@ -63,63 +63,13 @@ public class Setup {
             for( int j = 0; j< field.length; j++){
                 if(field[i][j].isMine()){
 
-                    if( i == 0 && j == 0){  //happens if the mine is in the first column of the first row
-                        field[i+1][j].setNeighborMines( field[i+1][j].getNeighborMines()+1 );
-                        field[i][j+1].setNeighborMines( field[i][j+1].getNeighborMines()+1 );
-                        field[i+1][j+1].setNeighborMines( field[i+1][j+1].getNeighborMines()+1 );
-                    }
-                    else if( i == field.length-1 && j == 0){ //happens if the mine is in the first column of the last row
-                        field[i-1][j].setNeighborMines( field[i-1][j].getNeighborMines()+1 );
-                        field[i][j+1].setNeighborMines( field[i][j+1].getNeighborMines()+1 );
-                        field[i-1][j+1].setNeighborMines( field[i-1][j+1].getNeighborMines()+1 );
-                    }
-                    else if( i == 0 && j == field.length-1){ //happens if the mine is in the last column of the first row
-                        field[i+1][j].setNeighborMines( field[i+1][j].getNeighborMines()+1 );
-                        field[i][j-1].setNeighborMines( field[i][j-1].getNeighborMines()+1 );
-                        field[i+1][j-1].setNeighborMines( field[i+1][j-1].getNeighborMines()+1 );
-                    }
-                    else if( i == field.length-1 && j == field.length-1){ //happens if the mine is in the last column of the last row
-                        field[i-1][j].setNeighborMines( field[i-1][j].getNeighborMines()+1 );
-                        field[i][j-1].setNeighborMines( field[i][j-1].getNeighborMines()+1 );
-                        field[i-1][j-1].setNeighborMines( field[i-1][j-1].getNeighborMines()+1 );
-                    }
-                    else if( i == 0 ){ //happens if the mine is in the first row, but not on the edges
-                        field[i][j-1].setNeighborMines( field[i][j-1].getNeighborMines()+1 );
-                        field[i+1][j-1].setNeighborMines( field[i+1][j-1].getNeighborMines()+1 );
-                        field[i+1][j].setNeighborMines( field[i+1][j].getNeighborMines()+1 );
-                        field[i+1][j+1].setNeighborMines( field[i+1][j+1].getNeighborMines()+1 );
-                        field[i][j+1].setNeighborMines( field[i][j+1].getNeighborMines()+1 );
-                    }
-                    else if( i == field.length-1 ){ //happens if the mine is in the last row, but not on the edges
-                        field[i][j-1].setNeighborMines( field[i][j-1].getNeighborMines()+1 );
-                        field[i-1][j-1].setNeighborMines( field[i-1][j-1].getNeighborMines()+1 );
-                        field[i-1][j].setNeighborMines( field[i-1][j].getNeighborMines()+1 );
-                        field[i-1][j+1].setNeighborMines( field[i-1][j+1].getNeighborMines()+1 );
-                        field[i][j+1].setNeighborMines( field[i][j+1].getNeighborMines()+1 );
-                    }
-                    else if( j == 0 ){ //happens if the mine is in the first column but not on the edges
-                        field[i-1][j].setNeighborMines( field[i-1][j].getNeighborMines()+1 );
-                        field[i-1][j+1].setNeighborMines( field[i-1][j+1].getNeighborMines()+1 );
-                        field[i][j+1].setNeighborMines( field[i][j+1].getNeighborMines()+1 );
-                        field[i+1][j+1].setNeighborMines( field[i+1][j+1].getNeighborMines()+1 );
-                        field[i+1][j].setNeighborMines( field[i+1][j].getNeighborMines()+1 );
-                    }
-                    else if( j == field.length-1 ){ //happens if the mine is in the last column but not on the edges
-                        field[i-1][j].setNeighborMines( field[i-1][j].getNeighborMines()+1 );
-                        field[i-1][j-1].setNeighborMines( field[i-1][j-1].getNeighborMines()+1 );
-                        field[i][j-1].setNeighborMines( field[i][j-1].getNeighborMines()+1 );
-                        field[i+1][j-1].setNeighborMines( field[i+1][j-1].getNeighborMines()+1 );
-                        field[i+1][j].setNeighborMines( field[i+1][j].getNeighborMines()+1 );
-                    }
-                    else{ //Happens if the mine is not on any of the edges, so it has 8 neighbours.
-                        field[i-1][j-1].setNeighborMines( field[i-1][j-1].getNeighborMines()+1 );
-                        field[i-1][j].setNeighborMines( field[i-1][j].getNeighborMines()+1 );
-                        field[i-1][j+1].setNeighborMines( field[i-1][j+1].getNeighborMines()+1 );
-                        field[i][j+1].setNeighborMines( field[i][j+1].getNeighborMines()+1 );
-                        field[i+1][j+1].setNeighborMines( field[i+1][j+1].getNeighborMines()+1 );
-                        field[i+1][j].setNeighborMines( field[i+1][j].getNeighborMines()+1 );
-                        field[i+1][j-1].setNeighborMines( field[i+1][j-1].getNeighborMines()+1 );
-                        field[i][j-1].setNeighborMines( field[i][j-1].getNeighborMines()+1 );
+                    int[][] neighbours = Field.getNeighboursIndexes(i,j,numberOfFields);
+
+                    for( int rowcount = 0; rowcount< neighbours.length; rowcount++){
+                        int rowindex = neighbours[rowcount][0];
+                        int colindex = neighbours[rowcount][1];
+
+                        field[rowindex][colindex].setNeighborMines( field[rowindex][colindex].getNeighborMines()+1 );
                     }
                 }
             }
