@@ -3,6 +3,8 @@ package main;
 import fieldSetup.Setup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import gameplayLogic.Print;
+import gameplayLogic.Moves;
 
 public class Main {
 
@@ -26,100 +28,11 @@ public class Main {
         Setup.randomizeMines(field);
         Setup.setNeighbours(field);
 
-        print(field);
+        Print.print(field, numberOfFields);
 
     }
 
-  private static void print( Field[][] field){
-        int rownum = 0;
-        int colnum = 0;
 
-        System.out.print("  ");
-
-        for( int i = 0; i < numberOfFields; i++){
-            if(colnum <= 10) {
-                System.out.print(" " + colnum);
-            }
-            else{
-                System.out.print(colnum);
-            }
-            colnum++;
-        }
-
-      System.out.print("\n  ");
-
-      for( int i = 0; i < numberOfFields*2; i++){
-          System.out.print("_");
-      }
-      System.out.println("");
-
-        for(int i = 0; i< numberOfFields; i++){
-            if(rownum < 10){
-                System.out.print(rownum+ " |");
-            }
-            else {
-                System.out.print(rownum+"|");
-            }
-            rownum++;
-
-            for( int j = 0; j< numberOfFields; j++){
-                if(field[i][j].isMine()) {
-                    System.out.print("M ");
-                }
-                else{
-                    System.out.print(field[i][j].getNeighborMines()+" ");
-                }
-            }
-            System.out.println("");
-        }
-  }
-
-    private static void correctPrint( Field[][] field){
-        int rownum = 0;
-        int colnum = 0;
-
-        System.out.print("  ");
-
-        for( int i = 0; i < numberOfFields; i++){
-            if(colnum <= 10) {
-                System.out.print(" " + colnum);
-            }
-            else{
-                System.out.print(colnum);
-            }
-            colnum++;
-        }
-
-        System.out.print("\n  ");
-
-        for( int i = 0; i < numberOfFields*2; i++){
-            System.out.print("_");
-        }
-        System.out.println("");
-
-        for(int i = 0; i< numberOfFields; i++){
-            if(rownum < 10){
-                System.out.print(rownum+ " |");
-            }
-            else {
-                System.out.print(rownum+"|");
-            }
-            rownum++;
-
-            for( int j = 0; j< numberOfFields; j++){
-                if(field[i][j].isFlagged()){
-                    System.out.print("L ");
-                }
-                else if(field[i][j].isClicked()){
-                    System.out.print(field[i][j].getNeighborMines());
-                }
-                else{
-                    System.out.print("X ");
-                }
-            }
-            System.out.println("");
-        }
-    }
 
 }
 
