@@ -23,7 +23,7 @@
         <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
         <maven.compiler.source>13</maven.compiler.source>
         <maven.compiler.target>13</maven.compiler.target>
-        <mainClass>gamelogic.Main</mainClass>
+        <mainClass>main.Main</mainClass>
     </properties>
 
     <dependencies>

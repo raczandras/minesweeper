@@ -1,4 +1,4 @@
-package gamelogic;
+package fieldSetup;
 
 @lombok.Data
 public class Field {
