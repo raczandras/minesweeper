@@ -2,9 +2,9 @@ package gameplayLogic;
 
 import main.Field;
 
-public class Print {
+public class Printer {
 
-    public static void print( Field[][] field, int numberOfFields){
+    public static void endgamePrint( Field[][] field, int numberOfFields){
         int rownum = 0;
         int colnum = 0;
 
@@ -48,7 +48,7 @@ public class Print {
         }
     }
 
-    public static void correctPrint( Field[][] field, int numberOfFields){
+    public static void duringGamePrint( Field[][] field, int numberOfFields){
         int rownum = 0;
         int colnum = 0;
 
@@ -84,8 +84,11 @@ public class Print {
                 if(field[i][j].isFlagged()){
                     System.out.print("L ");
                 }
+                else if(field[i][j].isClicked() && field[i][j].isMine() ){
+                    System.out.print("M ");
+                }
                 else if(field[i][j].isClicked()){
-                    System.out.print(field[i][j].getNeighborMines());
+                    System.out.print(field[i][j].getNeighborMines()+" ");
                 }
                 else{
                     System.out.print("X ");
