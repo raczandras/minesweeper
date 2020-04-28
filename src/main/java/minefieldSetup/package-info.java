@@ -1,2 +1,2 @@
-package fieldSetup;
+package minefieldSetup;
 //This package is responsible for setting up the initial minefield.
