@@ -14,6 +14,7 @@ public class Main {
         logger.trace("Please type in the difficulty you want. easy or normal or hard");
         Setup.selectDifficulty();
         int numberOfFields = Setup.getNumberOfFields();
+        int numberOfMines = Setup.getNumberOfMines();
 
         Field[][] field = new Field[numberOfFields][numberOfFields];
 
@@ -29,8 +30,23 @@ public class Main {
         Printer.duringGamePrint(field, numberOfFields);
 
         while(true){
+            int numberOfNotClicked = 0;
             Moves.userMove(field, numberOfFields);
+
+            for(int i = 0; i < numberOfFields; i++){
+                for(int j = 0; j < numberOfFields; j++){
+                    if( !field[i][j].isClicked() ){
+                        numberOfNotClicked++;
+                    }
+                }
+            }
+            if( numberOfNotClicked == numberOfMines ){
+                Printer.endgamePrint(field, numberOfFields);
+                System.out.println("You won!");
+                break;
+            }
         }
+        System.exit(0);
     }
 
 }
