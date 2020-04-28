@@ -1,4 +1,4 @@
-package fieldSetup;
+package minefieldSetup;
 
 import main.Field;
 
@@ -9,6 +9,7 @@ public class Setup {
     private static int numberOfFields;
     private static int numberOfMines;
 
+    public static int getNumberOfMines() { return numberOfMines; }
     public static int getNumberOfFields() {
         return numberOfFields;
     }
