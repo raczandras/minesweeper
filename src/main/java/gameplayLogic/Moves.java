@@ -1,6 +1,5 @@
 package gameplayLogic;
 import main.Field;
-import minefieldSetup.Setup;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -81,7 +80,7 @@ public class Moves {
     private static void openAField(Field[][] field, int numberOfFields){
         int rownum;
         int colnum;
-        int fieldsLeft = numberOfFields * numberOfFields;
+
 
         try {
             System.out.println("Please type in a row number you want to open.");
@@ -100,25 +99,25 @@ public class Moves {
                 openAField(field, numberOfFields);
                 return;
             }
-            else{
-                field[rownum][colnum].setClicked(true);
-                field[rownum][colnum].setFlagged(false);
-                Printer.duringGamePrint(field, numberOfFields);
-                sc.nextLine();
-                fieldsLeft--;
-            }
 
             if( field[rownum][colnum].isMine()){
                 System.out.println("You lost!");
+                Printer.endgamePrint(field, numberOfFields);
                 sc.close();
                 System.exit(0);
             }
-            else if( fieldsLeft == Setup.getNumberOfMines() ){
-                System.out.println("You won!");
-                sc.close();
-                System.exit(0);
-            }
+            else {
+                field[rownum][colnum].setClicked(true);
+                field[rownum][colnum].setFlagged(false);
+                field[rownum][colnum].setWasChecked(true);
 
+                if( field[rownum][colnum].getNeighborMines() == 0){
+                    openZeros(field, rownum, colnum, numberOfFields);
+                }
+
+                Printer.duringGamePrint(field, numberOfFields);
+                sc.nextLine();
+            }
 
         }
         catch(InputMismatchException ex ){
@@ -126,5 +125,57 @@ public class Moves {
             sc.nextLine();
             openAField(field, numberOfFields);
         }
+    }
+
+    private static void openZeros(Field[][] field, int rownum, int colnum, int numberOfFields) {
+
+        int[][] neighbours = getNotCheckedIndexes(field, rownum, colnum,numberOfFields);
+
+        for( int rowcount = 0; rowcount< neighbours.length; rowcount++){
+
+            int rowindex = neighbours[rowcount][0];
+            int colindex = neighbours[rowcount][1];
+
+            if(!field[rowindex][colindex].isClicked()) {
+                field[rowindex][colindex].setClicked(true);
+            }
+
+            if( field[rowindex][colindex].getNeighborMines() == 0 ) {
+                openZeros(field, rowindex, colindex, numberOfFields );
+            }
+        }
+    }
+
+
+    public static int[][] getNotCheckedIndexes(Field[][] field, int row, int col, int numberOfFields){
+        int[][] neighbours;
+        int rowcount = 0;
+
+        for(int colNum = col - 1; colNum <= (col + 1); colNum++  ) {
+            for (int rowNum = row - 1; rowNum <= (row + 1); rowNum++  ) {
+                if(!((colNum == col) && (rowNum == row))) {
+                    if(Field.withinGrid (colNum, rowNum, numberOfFields) && !field[colNum][rowNum].isWasChecked() ) {
+                        rowcount++;
+
+                    }
+                }
+            }
+        }
+        neighbours = new int[rowcount][2];
+        rowcount = 0;
+
+        for(int colNum = col - 1; colNum <= (col + 1); colNum++  ) {
+            for (int rowNum = row - 1; rowNum <= (row + 1); rowNum++  ) {
+                if(!((colNum == col) && (rowNum == row))) {
+                    if(Field.withinGrid (colNum, rowNum, numberOfFields) && !field[colNum][rowNum].isWasChecked() ) {
+                        neighbours[rowcount][0] = rowNum;
+                        neighbours[rowcount][1] = colNum;
+                        field[colNum][rowNum].setWasChecked(true);
+                        rowcount++;
+                    }
+                }
+            }
+        }
+        return neighbours;
     }
 }
