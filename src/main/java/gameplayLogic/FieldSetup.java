@@ -62,10 +62,8 @@ public class FieldSetup {
                     int[][] neighbours = Field.getNeighboursIndexes(i,j,numberOfFields);
 
                     for(int[] neighbour : neighbours) {
-                        int rowindex = neighbour[0];
-                        int colindex = neighbour[1];
 
-                        field[rowindex][colindex].setNeighborMines(field[rowindex][colindex].getNeighborMines() + 1);
+                        field[neighbour[0]][neighbour[1]].setNeighborMines(field[neighbour[0]][neighbour[1]].getNeighborMines() + 1);
                     }
                 }
             }
