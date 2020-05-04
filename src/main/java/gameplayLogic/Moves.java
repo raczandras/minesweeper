@@ -65,7 +65,6 @@ public class Moves {
             }
             else{
                 field[rownum][colnum].setFlagged(true);
-                Printer.duringGamePrint(field, numberOfFields);
                 sc.nextLine();
             }
 
@@ -91,19 +90,10 @@ public class Moves {
             if( rownum < 0 || rownum > field.length-1 || colnum < 0 || colnum > field.length-1){
                 System.out.println("Invalid input.");
                 openAField(field, numberOfFields);
-                return;
             }
             else if( field[rownum][colnum].isClicked()){
                 System.out.println("This field is already Clicked. Choose an other field.");
                 openAField(field, numberOfFields);
-                return;
-            }
-
-            if( field[rownum][colnum].isMine()){
-                System.out.println("You lost!");
-                Printer.endgamePrint(field, numberOfFields);
-                sc.close();
-                System.exit(0);
             }
             else {
                 field[rownum][colnum].setClicked(true);
@@ -113,11 +103,8 @@ public class Moves {
                 if( field[rownum][colnum].getNeighborMines() == 0){
                     openZeros(field, rownum, colnum, numberOfFields);
                 }
-
-                Printer.duringGamePrint(field, numberOfFields);
                 sc.nextLine();
             }
-
         }
         catch(InputMismatchException ex ){
             System.out.println("Invalid input");
@@ -146,7 +133,7 @@ public class Moves {
     }
 
 
-    public static int[][] getNotCheckedIndexes(Field[][] field, int row, int col, int numberOfFields){
+    private static int[][] getNotCheckedIndexes(Field[][] field, int row, int col, int numberOfFields){
         int[][] neighbours;
         int rowcount = 0;
 
