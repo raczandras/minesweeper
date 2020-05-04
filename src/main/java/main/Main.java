@@ -4,18 +4,23 @@ import gameplayLogic.FieldSetup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import gameplayLogic.gameplay;
-import java.util.Scanner;
+import gameResult.Leaderboard;
+import gameResult.Result;
+import java.time.LocalDateTime;
 
 public class Main {
 
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
         logger.trace("Please type in the difficulty you want. easy or normal or hard");
         FieldSetup.selectDifficulty();
         int numberOfFields = FieldSetup.getNumberOfFields();
-        String result;
+        String end;
+        LocalDateTime startingDate;
+        long startTime;
+        long endTime;
+        Result result;
 
         Field[][] field = new Field[numberOfFields][numberOfFields];
 
@@ -27,15 +32,21 @@ public class Main {
 
         FieldSetup.randomizeMines(field);
         FieldSetup.setNeighbours(field);
+        startingDate = LocalDateTime.now();
+        startTime = System.currentTimeMillis();
+        end = gameplay.gamePlay(field);
 
-        result = gameplay.gamePlay(field);
-
-        if(result.equalsIgnoreCase("win")){
+        if(end.equalsIgnoreCase("win")){
             System.out.println("You won!");
+            endTime = System.currentTimeMillis();
+            result = Leaderboard.makeNewResult(startingDate, startTime, endTime);
         }
         else{
             System.out.println("You lost!");
+            endTime = System.currentTimeMillis();
+            result = Leaderboard.makeNewResult(startingDate, startTime, endTime);
         }
+        System.out.println("Displaying Leaderboard:\n" + result.toString());
 
         System.exit(0);
     }
