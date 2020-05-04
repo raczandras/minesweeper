@@ -81,7 +81,6 @@ public class Moves {
         int rownum;
         int colnum;
 
-
         try {
             System.out.println("Please type in a row number you want to open.");
             rownum = sc.nextInt();

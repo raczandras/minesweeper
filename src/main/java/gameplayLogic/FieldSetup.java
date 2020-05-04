@@ -1,9 +1,9 @@
-package minefieldSetup;
+package gameplayLogic;
 
 import main.Field;
 import java.util.Scanner;
 
-public class Setup {
+public class FieldSetup {
 
     private static int numberOfFields;
     private static int numberOfMines;
@@ -54,7 +54,7 @@ public class Setup {
     }
 
     public static void setNeighbours(Field[][] field){
-        
+
         for( int i = 0; i < field.length; i++){
             for( int j = 0; j< field.length; j++){
                 if(field[i][j].isMine()){
