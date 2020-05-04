@@ -8,7 +8,7 @@ import gameplayLogic.Moves;
 
 public class Main {
 
-    private static Logger logger = LoggerFactory.getLogger(Main.class);
+    private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args){
         logger.trace("Please type in the difficulty you want. easy or normal or hard");
