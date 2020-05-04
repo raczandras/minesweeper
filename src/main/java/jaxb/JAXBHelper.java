@@ -25,7 +25,6 @@ public class JAXBHelper {
             JAXBContext context = JAXBContext.newInstance(o.getClass());
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-            //az alábbit azért adtam hozzá, hogy ne jelenjen meg a standalone=yes az xml fájlban
             marshaller.setProperty("com.sun.xml.bind.xmlDeclaration", Boolean.FALSE);
             marshaller.setProperty("com.sun.xml.bind.xmlHeaders","<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
             marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
