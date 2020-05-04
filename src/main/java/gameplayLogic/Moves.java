@@ -130,17 +130,17 @@ public class Moves {
 
         int[][] neighbours = getNotCheckedIndexes(field, rownum, colnum,numberOfFields);
 
-        for( int rowcount = 0; rowcount< neighbours.length; rowcount++){
+        for (int[] neighbour : neighbours) {
 
-            int rowindex = neighbours[rowcount][0];
-            int colindex = neighbours[rowcount][1];
+            int rowindex = neighbour[0];
+            int colindex = neighbour[1];
 
-            if(!field[rowindex][colindex].isClicked()) {
+            if (!field[rowindex][colindex].isClicked()) {
                 field[rowindex][colindex].setClicked(true);
             }
 
-            if( field[rowindex][colindex].getNeighborMines() == 0 ) {
-                openZeros(field, rowindex, colindex, numberOfFields );
+            if (field[rowindex][colindex].getNeighborMines() == 0) {
+                openZeros(field, rowindex, colindex, numberOfFields);
             }
         }
     }

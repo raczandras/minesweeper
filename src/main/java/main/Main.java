@@ -15,6 +15,7 @@ public class Main {
         FieldSetup.selectDifficulty();
         int numberOfFields = FieldSetup.getNumberOfFields();
         int numberOfMines = FieldSetup.getNumberOfMines();
+        int numberOfNotClicked = 0;
 
         Field[][] field = new Field[numberOfFields][numberOfFields];
 
@@ -30,7 +31,7 @@ public class Main {
         Printer.duringGamePrint(field, numberOfFields);
 
         while(true){
-            int numberOfNotClicked = 0;
+            numberOfNotClicked = 0;
             Moves.userMove(field, numberOfFields);
 
             for(int i = 0; i < numberOfFields; i++){
