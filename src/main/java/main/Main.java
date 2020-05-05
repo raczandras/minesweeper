@@ -20,7 +20,6 @@ public class Main {
         LocalDateTime startingDate;
         long startTime;
         long endTime;
-        Result result;
 
         Field[][] field = new Field[numberOfFields][numberOfFields];
 
@@ -39,14 +38,13 @@ public class Main {
         if(end.equalsIgnoreCase("win")){
             System.out.println("You won!");
             endTime = System.currentTimeMillis();
-            result = Leaderboard.makeNewResult(startingDate, startTime, endTime);
+            Leaderboard.makeNewResult(startingDate, startTime, endTime);
         }
         else{
             System.out.println("You lost!");
             endTime = System.currentTimeMillis();
-            result = Leaderboard.makeNewResult(startingDate, startTime, endTime);
+            Leaderboard.makeNewResult(startingDate, startTime, endTime);
         }
-        System.out.println("Displaying Leaderboard:\n" + result.toString());
 
         System.exit(0);
     }
