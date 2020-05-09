@@ -1,11 +1,8 @@
 package gameplayLogic;
 
-import controller.launchController;
 import main.Field;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Scanner;
 
 public class FieldSetup {
 
@@ -18,24 +15,12 @@ public class FieldSetup {
         return field;
     }
 
-    public static void setField(Field[][] field) {
-        FieldSetup.field = field;
-    }
-
     public static int getNumberOfFields() {
         return numberOfFields;
     }
 
     public static int getNumberOfMines() {
         return numberOfMines;
-    }
-
-    public static void setNumberOfMines(int numberOfMines) {
-        FieldSetup.numberOfMines = numberOfMines;
-    }
-
-    public static void setNumberOfFields(int numberOfFields) {
-        FieldSetup.numberOfFields = numberOfFields;
     }
 
     public static void initField(int numberOfFields, int numberOfMines){
@@ -50,6 +35,30 @@ public class FieldSetup {
         }
 
         randomizeMines();
+    }
+
+    public static boolean flagAField(int rownum, int colnum){
+        if( field[rownum][colnum].isClicked() ) {
+            return false;
+        }
+        else{
+            field[rownum][colnum].setFlagged( !field[rownum][colnum].isFlagged() );
+            return true;
+        }
+    }
+
+    public static boolean openAField(int rownum, int colnum){
+        if(field[rownum][colnum].isClicked() ){
+            return false;
+        }
+        else{
+            field[rownum][colnum].setFlagged(false);
+            field[rownum][colnum].setClicked(true);
+            if( field[rownum][colnum].getNeighborMines() == 0 ) {
+                openZeros(rownum, colnum);
+            }
+            return true;
+        }
     }
 
     public static void randomizeMines(){ //Assigns the mines randomly on the minefield
@@ -69,41 +78,14 @@ public class FieldSetup {
         setNeighbours();
     }
 
-    public static void selectDifficulty(){ //Makes a player select a difficulty setting before the start of the game
-        Scanner sc = new Scanner(System.in);
-        String difficulty = sc.nextLine();
-
-        if( difficulty.equalsIgnoreCase("easy") || difficulty.equalsIgnoreCase("normal") || difficulty.equalsIgnoreCase("hard") ){
-            switch(difficulty.toLowerCase()) {
-                case "easy":
-                    numberOfFields = 9;
-                    numberOfMines = 10;
-                    break;
-                case "normal":
-                    numberOfFields = 16;;
-                    numberOfMines = 40;;
-                    break;
-                case "hard":
-                    numberOfFields = 24;;
-                    numberOfMines = 99;;
-            }
-        }
-        else{
-            System.out.println("I don't understand. Try again:");
-            selectDifficulty();
-        }
-    }
 
     private static void setNeighbours(){
-
         for( int i = 0; i < field.length; i++){
             for( int j = 0; j< field.length; j++){
                 if(field[i][j].isMine()){
 
-                    int[][] neighbours = Field.getNeighboursIndexes(i,j,numberOfFields);
-
+                    int[][] neighbours = getNeighboursIndexes(i,j);
                     for(int[] neighbour : neighbours) {
-
                         field[neighbour[0]][neighbour[1]].setNeighborMines(field[neighbour[0]][neighbour[1]].getNeighborMines() + 1);
                     }
                 }
@@ -120,7 +102,6 @@ public class FieldSetup {
                 if(!((colNum == col) && (rowNum == row))) {
                     if(withinGrid (colNum, rowNum)) {
                         rowcount++;
-
                     }
                 }
             }
@@ -143,14 +124,63 @@ public class FieldSetup {
         return neighbours;
     }
 
+    private static int[][] getNotCheckedIndexes(int row, int col){
+        int[][] neighbours;
+        int rowcount = 0;
+
+        for(int colNum = col - 1; colNum <= (col + 1); colNum++  ) {
+            for (int rowNum = row - 1; rowNum <= (row + 1); rowNum++  ) {
+                if(!((colNum == col) && (rowNum == row))) {
+                    if(Field.withinGrid (colNum, rowNum, numberOfFields) && !field[colNum][rowNum].isWasChecked() ) {
+                        rowcount++;
+                    }
+                }
+            }
+        }
+        neighbours = new int[rowcount][2];
+        rowcount = 0;
+
+        for(int colNum = col - 1; colNum <= (col + 1); colNum++  ) {
+            for (int rowNum = row - 1; rowNum <= (row + 1); rowNum++  ) {
+                if(!((colNum == col) && (rowNum == row))) {
+                    if(Field.withinGrid (colNum, rowNum, numberOfFields) && !field[colNum][rowNum].isWasChecked() ) {
+                        neighbours[rowcount][0] = rowNum;
+                        neighbours[rowcount][1] = colNum;
+                        field[colNum][rowNum].setWasChecked(true);
+                        rowcount++;
+                    }
+                }
+            }
+        }
+        return neighbours;
+    }
+
+    private static void openZeros(int rownum, int colnum ) {
+
+        int[][] neighbours = getNotCheckedIndexes(rownum, colnum);
+
+        for (int[] neighbour : neighbours) {
+
+            int rowindex = neighbour[0];
+            int colindex = neighbour[1];
+
+            if (!field[rowindex][colindex].isClicked()) {
+                field[rowindex][colindex].setClicked(true);
+            }
+
+            if (field[rowindex][colindex].getNeighborMines() == 0) {
+                openZeros(rowindex, colindex );
+            }
+        }
+    }
+
     public static boolean withinGrid(int colNum, int rowNum) {
 
-        if((colNum < 0) || (rowNum <0) ) {
+        if((colNum < 0) || (rowNum <0) || colNum >= numberOfFields || rowNum >= numberOfFields ) {
             return false;
         }
-        if((colNum >= numberOfFields) || (rowNum >= numberOfFields)) {
-            return false;
+        else {
+            return true;
         }
-        return true;
     }
 }
