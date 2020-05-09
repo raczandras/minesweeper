@@ -1,4 +1,4 @@
-package main;
+package gameplayLogic;
 
 @lombok.Data
 public class Field {

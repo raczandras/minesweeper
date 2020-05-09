@@ -1,5 +1,4 @@
 package gameplayLogic;
-import main.Field;
 
 public class gameplay {
     private static String result;

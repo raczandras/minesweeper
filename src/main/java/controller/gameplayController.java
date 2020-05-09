@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import java.util.List;
-import main.Field;
+import gameplayLogic.Field;
 import gameplayLogic.FieldSetup;
 
 public class gameplayController {

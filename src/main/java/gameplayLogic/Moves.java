@@ -1,5 +1,4 @@
 package gameplayLogic;
-import main.Field;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 

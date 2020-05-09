@@ -1,7 +1,5 @@
 package gameplayLogic;
 
-import main.Field;
-
 public class Printer {
 
     public static void endgamePrint( Field[][] field, int numberOfFields){
