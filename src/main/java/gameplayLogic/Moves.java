@@ -38,7 +38,7 @@ public class Moves {
         }
     }
 
-    private static void flagAField( Field[][] field, int numberOfFields) {
+    public static void flagAField( Field[][] field, int numberOfFields) {
         int rownum;
         int colnum;
 
@@ -76,7 +76,7 @@ public class Moves {
         }
     }
 
-    private static void openAField(Field[][] field, int numberOfFields){
+    public static void openAField(Field[][] field, int numberOfFields){
         int rownum;
         int colnum;
 
