@@ -6,277 +6,277 @@
 
 <?import java.util.ArrayList?>
 <VBox fillWidth="false" prefHeight="300.0" prefWidth="270.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.gameplayController">
-  <children>
-     <AnchorPane maxHeight="25.0" maxWidth="-1.0" prefHeight="26.0" prefWidth="270.0">
-        <children>
-            <Button fx:id="button08" layoutX="240.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="1.0" />
-            <Button fx:id="button07" layoutX="210.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="1.0" />
-            <Button fx:id="button06" layoutX="180.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="1.0" />
-            <Button fx:id="button05" layoutX="150.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="1.0" />
-            <Button fx:id="button04" layoutX="120.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="1.0" />
-            <Button fx:id="button03" layoutX="90.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text="M" AnchorPane.topAnchor="1.0" />
-            <Button fx:id="button02" layoutX="60.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text="M" AnchorPane.topAnchor="1.0" />
-            <Button fx:id="button01" layoutX="30.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="1.0" />
-            <Button fx:id="button00" layoutX="0.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction" text="M" AnchorPane.topAnchor="1.0" />
-         </children>
-    </AnchorPane>
+    <children>
+        <AnchorPane maxHeight="25.0" maxWidth="-1.0" prefHeight="26.0" prefWidth="270.0">
+            <children>
+                <Button fx:id="button08" layoutX="240.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="1.0" />
+                <Button fx:id="button07" layoutX="210.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="1.0" />
+                <Button fx:id="button06" layoutX="180.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="1.0" />
+                <Button fx:id="button05" layoutX="150.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="1.0" />
+                <Button fx:id="button04" layoutX="120.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="1.0" />
+                <Button fx:id="button03" layoutX="90.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text=" " AnchorPane.topAnchor="1.0" />
+                <Button fx:id="button02" layoutX="60.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text=" " AnchorPane.topAnchor="1.0" />
+                <Button fx:id="button01" layoutX="30.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="1.0" />
+                <Button fx:id="button00" layoutX="0.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction" text=" " AnchorPane.topAnchor="1.0" />
+            </children>
+        </AnchorPane>
 
-     <fx:define>
-        <ArrayList fx:id="btnList0">
-           <fx:reference source="button00" />
-           <fx:reference source="button01" />
-           <fx:reference source="button02" />
-           <fx:reference source="button03" />
-           <fx:reference source="button04" />
-           <fx:reference source="button05" />
-           <fx:reference source="button06" />
-           <fx:reference source="button07" />
-           <fx:reference source="button08" />
-        </ArrayList>
-     </fx:define>
+        <fx:define>
+            <ArrayList fx:id="btnList0">
+                <fx:reference source="button00" />
+                <fx:reference source="button01" />
+                <fx:reference source="button02" />
+                <fx:reference source="button03" />
+                <fx:reference source="button04" />
+                <fx:reference source="button05" />
+                <fx:reference source="button06" />
+                <fx:reference source="button07" />
+                <fx:reference source="button08" />
+            </ArrayList>
+        </fx:define>
 
-      <AnchorPane maxHeight="25.0" maxWidth="-1.0" prefHeight="26.0" prefWidth="270.0">
-         <children>
-            <Button fx:id="button18" layoutX="240.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction" text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button17" layoutX="210.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button16" layoutX="180.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button15" layoutX="150.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button14" layoutX="120.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button13" layoutX="90.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button12" layoutX="60.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button11" layoutX="30.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button10" layoutX="0.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-         </children>
-      </AnchorPane>
+        <AnchorPane maxHeight="25.0" maxWidth="-1.0" prefHeight="26.0" prefWidth="270.0">
+            <children>
+                <Button fx:id="button18" layoutX="240.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction" text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button17" layoutX="210.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button16" layoutX="180.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button15" layoutX="150.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button14" layoutX="120.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button13" layoutX="90.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button12" layoutX="60.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button11" layoutX="30.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button10" layoutX="0.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+            </children>
+        </AnchorPane>
 
-     <fx:define>
-        <ArrayList fx:id="btnList1">
-           <fx:reference source="button10" />
-           <fx:reference source="button11" />
-           <fx:reference source="button12" />
-           <fx:reference source="button13" />
-           <fx:reference source="button14" />
-           <fx:reference source="button15" />
-           <fx:reference source="button16" />
-           <fx:reference source="button17" />
-           <fx:reference source="button18" />
-        </ArrayList>
-     </fx:define>
+        <fx:define>
+            <ArrayList fx:id="btnList1">
+                <fx:reference source="button10" />
+                <fx:reference source="button11" />
+                <fx:reference source="button12" />
+                <fx:reference source="button13" />
+                <fx:reference source="button14" />
+                <fx:reference source="button15" />
+                <fx:reference source="button16" />
+                <fx:reference source="button17" />
+                <fx:reference source="button18" />
+            </ArrayList>
+        </fx:define>
 
-      <AnchorPane maxHeight="25.0" maxWidth="-1.0" prefHeight="26.0" prefWidth="270.0">
-         <children>
-            <Button fx:id="button28" layoutX="240.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button27" layoutX="210.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button26" layoutX="180.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button25" layoutX="150.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button24" layoutX="120.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button23" layoutX="90.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button22" layoutX="60.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button21" layoutX="30.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button20" layoutX="0.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-         </children>
-      </AnchorPane>
+        <AnchorPane maxHeight="25.0" maxWidth="-1.0" prefHeight="26.0" prefWidth="270.0">
+            <children>
+                <Button fx:id="button28" layoutX="240.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button27" layoutX="210.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button26" layoutX="180.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button25" layoutX="150.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button24" layoutX="120.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button23" layoutX="90.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button22" layoutX="60.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button21" layoutX="30.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button20" layoutX="0.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+            </children>
+        </AnchorPane>
 
-     <fx:define>
-        <ArrayList fx:id="btnList2">
-           <fx:reference source="button20" />
-           <fx:reference source="button21" />
-           <fx:reference source="button22" />
-           <fx:reference source="button23" />
-           <fx:reference source="button24" />
-           <fx:reference source="button25" />
-           <fx:reference source="button26" />
-           <fx:reference source="button27" />
-           <fx:reference source="button28" />
-        </ArrayList>
-     </fx:define>
+        <fx:define>
+            <ArrayList fx:id="btnList2">
+                <fx:reference source="button20" />
+                <fx:reference source="button21" />
+                <fx:reference source="button22" />
+                <fx:reference source="button23" />
+                <fx:reference source="button24" />
+                <fx:reference source="button25" />
+                <fx:reference source="button26" />
+                <fx:reference source="button27" />
+                <fx:reference source="button28" />
+            </ArrayList>
+        </fx:define>
 
-      <AnchorPane maxHeight="25.0" maxWidth="-1.0" prefHeight="26.0" prefWidth="270.0">
-         <children>
-            <Button fx:id="button38" layoutX="240.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button37" layoutX="210.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button36" layoutX="180.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button35" layoutX="150.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button34" layoutX="120.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button33" layoutX="90.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"  text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button32" layoutX="60.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"  text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button31" layoutX="30.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button30" layoutX="0.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-         </children>
-      </AnchorPane>
+        <AnchorPane maxHeight="25.0" maxWidth="-1.0" prefHeight="26.0" prefWidth="270.0">
+            <children>
+                <Button fx:id="button38" layoutX="240.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button37" layoutX="210.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button36" layoutX="180.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button35" layoutX="150.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button34" layoutX="120.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button33" layoutX="90.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"  text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button32" layoutX="60.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"  text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button31" layoutX="30.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button30" layoutX="0.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+            </children>
+        </AnchorPane>
 
-     <fx:define>
-        <ArrayList fx:id="btnList3">
-           <fx:reference source="button30" />
-           <fx:reference source="button31" />
-           <fx:reference source="button32" />
-           <fx:reference source="button33" />
-           <fx:reference source="button34" />
-           <fx:reference source="button35" />
-           <fx:reference source="button36" />
-           <fx:reference source="button37" />
-           <fx:reference source="button38" />
-        </ArrayList>
-     </fx:define>
+        <fx:define>
+            <ArrayList fx:id="btnList3">
+                <fx:reference source="button30" />
+                <fx:reference source="button31" />
+                <fx:reference source="button32" />
+                <fx:reference source="button33" />
+                <fx:reference source="button34" />
+                <fx:reference source="button35" />
+                <fx:reference source="button36" />
+                <fx:reference source="button37" />
+                <fx:reference source="button38" />
+            </ArrayList>
+        </fx:define>
 
-      <AnchorPane maxHeight="25.0" maxWidth="-1.0" prefHeight="26.0" prefWidth="270.0">
-         <children>
-            <Button fx:id="button48" layoutX="240.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button47" layoutX="210.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button46" layoutX="180.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button45" layoutX="150.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button44" layoutX="120.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button43" layoutX="90.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button42" layoutX="60.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button41" layoutX="30.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button40" layoutX="0.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-         </children>
-      </AnchorPane>
+        <AnchorPane maxHeight="25.0" maxWidth="-1.0" prefHeight="26.0" prefWidth="270.0">
+            <children>
+                <Button fx:id="button48" layoutX="240.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button47" layoutX="210.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button46" layoutX="180.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button45" layoutX="150.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button44" layoutX="120.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button43" layoutX="90.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button42" layoutX="60.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button41" layoutX="30.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button40" layoutX="0.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+            </children>
+        </AnchorPane>
 
-     <fx:define>
-        <ArrayList fx:id="btnList4">
-           <fx:reference source="button40" />
-           <fx:reference source="button41" />
-           <fx:reference source="button42" />
-           <fx:reference source="button43" />
-           <fx:reference source="button44" />
-           <fx:reference source="button45" />
-           <fx:reference source="button46" />
-           <fx:reference source="button47" />
-           <fx:reference source="button48" />
-        </ArrayList>
-     </fx:define>
+        <fx:define>
+            <ArrayList fx:id="btnList4">
+                <fx:reference source="button40" />
+                <fx:reference source="button41" />
+                <fx:reference source="button42" />
+                <fx:reference source="button43" />
+                <fx:reference source="button44" />
+                <fx:reference source="button45" />
+                <fx:reference source="button46" />
+                <fx:reference source="button47" />
+                <fx:reference source="button48" />
+            </ArrayList>
+        </fx:define>
 
-      <AnchorPane maxHeight="25.0" maxWidth="-1.0" prefHeight="26.0" prefWidth="270.0">
-         <children>
-            <Button fx:id="button58" layoutX="240.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button57" layoutX="210.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button56" layoutX="180.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button55" layoutX="150.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button54" layoutX="120.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button53" layoutX="90.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button52" layoutX="60.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button51" layoutX="30.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button50" layoutX="0.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-         </children>
-      </AnchorPane>
+        <AnchorPane maxHeight="25.0" maxWidth="-1.0" prefHeight="26.0" prefWidth="270.0">
+            <children>
+                <Button fx:id="button58" layoutX="240.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button57" layoutX="210.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button56" layoutX="180.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button55" layoutX="150.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button54" layoutX="120.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button53" layoutX="90.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button52" layoutX="60.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button51" layoutX="30.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button50" layoutX="0.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+            </children>
+        </AnchorPane>
 
-     <fx:define>
-        <ArrayList fx:id="btnList5">
-           <fx:reference source="button50" />
-           <fx:reference source="button51" />
-           <fx:reference source="button52" />
-           <fx:reference source="button53" />
-           <fx:reference source="button54" />
-           <fx:reference source="button55" />
-           <fx:reference source="button56" />
-           <fx:reference source="button57" />
-           <fx:reference source="button58" />
-        </ArrayList>
-     </fx:define>
+        <fx:define>
+            <ArrayList fx:id="btnList5">
+                <fx:reference source="button50" />
+                <fx:reference source="button51" />
+                <fx:reference source="button52" />
+                <fx:reference source="button53" />
+                <fx:reference source="button54" />
+                <fx:reference source="button55" />
+                <fx:reference source="button56" />
+                <fx:reference source="button57" />
+                <fx:reference source="button58" />
+            </ArrayList>
+        </fx:define>
 
-      <AnchorPane maxHeight="25.0" maxWidth="-1.0" prefHeight="26.0" prefWidth="270.0">
-         <children>
-            <Button fx:id="button68" layoutX="240.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button67" layoutX="210.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button66" layoutX="180.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button65" layoutX="150.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button64" layoutX="120.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button63" layoutX="90.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button62" layoutX="60.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button61" layoutX="30.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button60" layoutX="0.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-         </children>
-      </AnchorPane>
+        <AnchorPane maxHeight="25.0" maxWidth="-1.0" prefHeight="26.0" prefWidth="270.0">
+            <children>
+                <Button fx:id="button68" layoutX="240.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button67" layoutX="210.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button66" layoutX="180.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button65" layoutX="150.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button64" layoutX="120.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button63" layoutX="90.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button62" layoutX="60.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button61" layoutX="30.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button60" layoutX="0.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+            </children>
+        </AnchorPane>
 
-     <fx:define>
-        <ArrayList fx:id="btnList6">
-           <fx:reference source="button60" />
-           <fx:reference source="button61" />
-           <fx:reference source="button62" />
-           <fx:reference source="button63" />
-           <fx:reference source="button64" />
-           <fx:reference source="button65" />
-           <fx:reference source="button66" />
-           <fx:reference source="button67" />
-           <fx:reference source="button68" />
-        </ArrayList>
-     </fx:define>
+        <fx:define>
+            <ArrayList fx:id="btnList6">
+                <fx:reference source="button60" />
+                <fx:reference source="button61" />
+                <fx:reference source="button62" />
+                <fx:reference source="button63" />
+                <fx:reference source="button64" />
+                <fx:reference source="button65" />
+                <fx:reference source="button66" />
+                <fx:reference source="button67" />
+                <fx:reference source="button68" />
+            </ArrayList>
+        </fx:define>
 
-      <AnchorPane maxHeight="25.0" maxWidth="-1.0" prefHeight="26.0" prefWidth="270.0">
-         <children>
-            <Button fx:id="button78" layoutX="240.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button77" layoutX="210.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button76" layoutX="180.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button75" layoutX="150.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button74" layoutX="120.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button73" layoutX="90.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button72" layoutX="60.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button71" layoutX="30.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button70" layoutX="0.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-         </children>
-      </AnchorPane>
+        <AnchorPane maxHeight="25.0" maxWidth="-1.0" prefHeight="26.0" prefWidth="270.0">
+            <children>
+                <Button fx:id="button78" layoutX="240.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button77" layoutX="210.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button76" layoutX="180.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button75" layoutX="150.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button74" layoutX="120.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button73" layoutX="90.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button72" layoutX="60.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false"  onAction="#clickAction"  text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button71" layoutX="30.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button70" layoutX="0.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+            </children>
+        </AnchorPane>
 
-     <fx:define>
-        <ArrayList fx:id="btnList7">
-           <fx:reference source="button70" />
-           <fx:reference source="button71" />
-           <fx:reference source="button72" />
-           <fx:reference source="button73" />
-           <fx:reference source="button74" />
-           <fx:reference source="button75" />
-           <fx:reference source="button76" />
-           <fx:reference source="button77" />
-           <fx:reference source="button78" />
-        </ArrayList>
-     </fx:define>
+        <fx:define>
+            <ArrayList fx:id="btnList7">
+                <fx:reference source="button70" />
+                <fx:reference source="button71" />
+                <fx:reference source="button72" />
+                <fx:reference source="button73" />
+                <fx:reference source="button74" />
+                <fx:reference source="button75" />
+                <fx:reference source="button76" />
+                <fx:reference source="button77" />
+                <fx:reference source="button78" />
+            </ArrayList>
+        </fx:define>
 
-      <AnchorPane maxHeight="25.0" maxWidth="-1.0" prefHeight="26.0" prefWidth="270.0">
-         <children>
-            <Button fx:id="button88" layoutX="240.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button87" layoutX="210.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button86" layoutX="180.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button85" layoutX="150.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button84" layoutX="120.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button83" layoutX="90.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"  text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button82" layoutX="60.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"  text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button81" layoutX="30.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-            <Button fx:id="button80" layoutX="0.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text="M" AnchorPane.topAnchor="0.0" />
-         </children>
-      </AnchorPane>
+        <AnchorPane maxHeight="25.0" maxWidth="-1.0" prefHeight="26.0" prefWidth="270.0">
+            <children>
+                <Button fx:id="button88" layoutX="240.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button87" layoutX="210.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button86" layoutX="180.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button85" layoutX="150.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button84" layoutX="120.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button83" layoutX="90.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"  text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button82" layoutX="60.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"  text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button81" layoutX="30.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+                <Button fx:id="button80" layoutX="0.0" layoutY="0.0" maxHeight="25.0" maxWidth="30.0" minHeight="25.0" minWidth="30.0" mnemonicParsing="false" onAction="#clickAction"   text=" " AnchorPane.topAnchor="0.0" />
+            </children>
+        </AnchorPane>
 
-     <fx:define>
-        <ArrayList fx:id="btnList8">
-           <fx:reference source="button80" />
-           <fx:reference source="button81" />
-           <fx:reference source="button82" />
-           <fx:reference source="button83" />
-           <fx:reference source="button84" />
-           <fx:reference source="button85" />
-           <fx:reference source="button86" />
-           <fx:reference source="button87" />
-           <fx:reference source="button88" />
-        </ArrayList>
-     </fx:define>
+        <fx:define>
+            <ArrayList fx:id="btnList8">
+                <fx:reference source="button80" />
+                <fx:reference source="button81" />
+                <fx:reference source="button82" />
+                <fx:reference source="button83" />
+                <fx:reference source="button84" />
+                <fx:reference source="button85" />
+                <fx:reference source="button86" />
+                <fx:reference source="button87" />
+                <fx:reference source="button88" />
+            </ArrayList>
+        </fx:define>
 
-     <fx:define>
-        <ArrayList fx:id="buttonsList">
-           <fx:reference source="btnList0" />
-           <fx:reference source="btnList1" />
-           <fx:reference source="btnList2" />
-           <fx:reference source="btnList3" />
-           <fx:reference source="btnList4" />
-           <fx:reference source="btnList5" />
-           <fx:reference source="btnList6" />
-           <fx:reference source="btnList7" />
-           <fx:reference source="btnList8" />
-        </ArrayList>
-     </fx:define>
+        <fx:define>
+            <ArrayList fx:id="buttonsList">
+                <fx:reference source="btnList0" />
+                <fx:reference source="btnList1" />
+                <fx:reference source="btnList2" />
+                <fx:reference source="btnList3" />
+                <fx:reference source="btnList4" />
+                <fx:reference source="btnList5" />
+                <fx:reference source="btnList6" />
+                <fx:reference source="btnList7" />
+                <fx:reference source="btnList8" />
+            </ArrayList>
+        </fx:define>
 
-      <AnchorPane prefHeight="200.0" prefWidth="280.0">
-         <children>
-            <Button fx:id="forfeit" layoutX="65.0" layoutY="8.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" onAction="#forfeitAction" text="Forfeit" />
-         </children>
-      </AnchorPane>
-  </children>
+        <AnchorPane prefHeight="200.0" prefWidth="280.0">
+            <children>
+                <Button fx:id="forfeit" layoutX="105.0" layoutY="8.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" onAction="#forfeitAction" text="Forfeit" />
+            </children>
+        </AnchorPane>
+    </children>
 </VBox>
