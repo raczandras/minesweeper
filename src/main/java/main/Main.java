@@ -1,6 +1,7 @@
 package main;
 
 import gameplayLogic.FieldSetup;
+import javafx.application.Application;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import gameplayLogic.gameplay;
@@ -12,7 +13,9 @@ public class Main {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args){
-        logger.trace("Please type in the difficulty you want. easy or normal or hard");
+        Application.launch(MyApplication.class, args);
+
+        /*logger.trace("Please type in the difficulty you want. easy or normal or hard");
         FieldSetup.selectDifficulty();
         int numberOfFields = FieldSetup.getNumberOfFields();
         String end;
@@ -45,7 +48,7 @@ public class Main {
             Leaderboard.makeNewResult(startingDate, startTime, endTime);
         }
 
-        System.exit(0);
+        System.exit(0);*/
     }
 
 }
