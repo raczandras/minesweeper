@@ -13,9 +13,9 @@ import gameResult.Leaderboard;
 
 import java.io.IOException;
 
-public class launchController {
+public class LaunchController {
 
-    private static final Logger logger = LoggerFactory.getLogger(launchController.class);
+    private static final Logger logger = LoggerFactory.getLogger(LaunchController.class);
 
     public void easySelected(ActionEvent actionEvent) throws IOException {
         logger.trace("The chosen difficulty is easy.");
@@ -57,7 +57,14 @@ public class launchController {
         Leaderboard.initStartingDate();
     }
 
-    public void leaderboardSelected(ActionEvent actionEvent){
+    public void leaderboardSelected(ActionEvent actionEvent) throws IOException{
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/leaderboard.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+        //LeaderboardController.printLeaderboard();
 
     }
 

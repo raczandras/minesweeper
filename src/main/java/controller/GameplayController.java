@@ -19,9 +19,9 @@ import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class gameplayController {
+public class GameplayController {
 
-    private static final Logger logger = LoggerFactory.getLogger(gameplayController.class);
+    private static final Logger logger = LoggerFactory.getLogger(GameplayController.class);
 
     @FXML
     private List<List<Button>> buttonsList;
