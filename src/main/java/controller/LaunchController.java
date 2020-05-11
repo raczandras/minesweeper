@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import gameplayLogic.FieldSetup;
+import gameplayLogic.ManageField;
 import gameResult.Leaderboard;
 
 import java.io.IOException;
@@ -19,7 +19,7 @@ public class LaunchController {
 
     public void easySelected(ActionEvent actionEvent) throws IOException {
         logger.trace("The chosen difficulty is easy.");
-        FieldSetup.initField(9,10);
+        ManageField.initField(9,10);
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/easymode.fxml"));
         Parent root = fxmlLoader.load();
@@ -33,7 +33,7 @@ public class LaunchController {
 
     public void normalSelected(ActionEvent actionEvent) throws IOException{
         logger.trace("The chosen difficulty is normal.");
-        FieldSetup.initField(12,20);
+        ManageField.initField(12,20);
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/normalmode.fxml"));
         Parent root = fxmlLoader.load();
@@ -46,7 +46,7 @@ public class LaunchController {
 
     public void hardSelected(ActionEvent actionEvent) throws IOException{
         logger.trace("The chosen difficulty is hard.");
-        FieldSetup.initField(15,40);
+        ManageField.initField(15,40);
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/hardmode.fxml"));
         Parent root = fxmlLoader.load();

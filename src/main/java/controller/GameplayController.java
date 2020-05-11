@@ -14,7 +14,7 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.util.List;
 import gameplayLogic.Field;
-import gameplayLogic.FieldSetup;
+import gameplayLogic.ManageField;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,11 +37,11 @@ public class GameplayController {
             for( int j = 0; j< buttonsList.get(i).size(); j++){
                 if( actionEvent.getSource().equals(buttonsList.get(i).get(j))){
                     if(actionEvent.getButton() == MouseButton.SECONDARY ){
-                        if( FieldSetup.flagAField(i,j)){
+                        if( ManageField.flagAField(i,j)){
                             decideState();
                         }
                     }
-                    else if(FieldSetup.openAField(i,j)) {
+                    else if(ManageField.openAField(i,j)) {
                             decideState();
                     }
                     break;
@@ -64,10 +64,10 @@ public class GameplayController {
     }
 
     public void decideState(){
-        if( FieldSetup.didwin() ){
+        if( ManageField.didwin() ){
             won();
         }
-        else if( FieldSetup.didlost() ){
+        else if( ManageField.didlost() ){
             lost();
         }
         else{
@@ -76,7 +76,7 @@ public class GameplayController {
     }
 
     private void printState() {
-        Field[][] field = FieldSetup.getField();
+        Field[][] field = ManageField.getField();
 
         for( int i = 0; i < buttonsList.size(); i++){
             for( int j = 0; j< buttonsList.get(i).size(); j++){
@@ -97,7 +97,7 @@ public class GameplayController {
 
     public void lost(){
         logger.trace("The player lost!");
-        Field[][] field = FieldSetup.getField();
+        Field[][] field = ManageField.getField();
         forfeitButton.setVisible(false);
         continueButton.setVisible(true);
 
@@ -117,7 +117,7 @@ public class GameplayController {
 
     public void won(){
         logger.trace("The player won!");
-        Field[][] field = FieldSetup.getField();
+        Field[][] field = ManageField.getField();
         forfeitButton.setVisible(false);
         continueButton.setVisible(true);
 

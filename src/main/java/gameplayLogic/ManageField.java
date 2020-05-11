@@ -3,20 +3,20 @@ package gameplayLogic;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class FieldSetup {
+public class ManageField {
 
     private static int numberOfFields;
     private static int numberOfMines;
     public static Field[][] field;
-    private static final Logger logger = LoggerFactory.getLogger(FieldSetup.class);
+    private static final Logger logger = LoggerFactory.getLogger(ManageField.class);
 
     public static Field[][] getField() {
         return field;
     }
 
     public static void initField(int numberOfFields, int numberOfMines){
-        FieldSetup.numberOfFields = numberOfFields;
-        FieldSetup.numberOfMines = numberOfMines;
+        ManageField.numberOfFields = numberOfFields;
+        ManageField.numberOfMines = numberOfMines;
         field = new Field[numberOfFields][numberOfFields];
 
         for(int i = 0; i < numberOfFields; i++){
