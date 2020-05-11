@@ -93,8 +93,6 @@ public class GameplayController {
         }
     }
 
-
-
     public void lost(){
         logger.trace("The player lost!");
         Field[][] field = ManageField.getField();
