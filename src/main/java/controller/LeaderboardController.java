@@ -6,25 +6,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-
-import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.List;
 
 public class LeaderboardController {
-
-    @FXML
-    private TextField nameTextField;
-
-    @FXML
-    private Label nameLabel;
+    private static final Logger logger = LoggerFactory.getLogger(LeaderboardController.class);
 
     @FXML
     private TableView<Result> leaderboardTable;
@@ -38,32 +27,23 @@ public class LeaderboardController {
     @FXML
     private TableColumn<Result, Float> secondsTaken;
 
-    public void makeResult(MouseEvent actionEvent) throws IOException {
-        String username;
-
-        if( nameTextField.getText().isEmpty()){
-            nameLabel.setText("Username is empty! Try again!");
-        }
-        else{
-            username = nameTextField.getText();
-            Leaderboard.makeNewResult(username);
-
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/leaderboard.fxml"));
-            Parent root = fxmlLoader.load();
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
-            fxmlLoader.<LeaderboardController>getController().printResults();
-        }
-    }
-
     public void exitSelected(ActionEvent actionEvent){
         System.exit(0);
     }
 
-    @FXML
-    public void printResults(){
-        List<Result> topList = Leaderboard.getResults();
+    public void printLeaderboard( String difficulty){
+        logger.trace("Printing the results onto the leaderboard.");
+        List<Result> topList;
+
+        if(difficulty.equalsIgnoreCase("easy") ) {
+            topList = Leaderboard.getEasyResults();
+        }
+        else if(difficulty.equalsIgnoreCase("normal")){
+            topList = Leaderboard.getNormalResults();
+        }
+        else{
+            topList = Leaderboard.getHardResults();
+        }
 
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         startingDate.setCellValueFactory(new PropertyValueFactory<>("startingDate"));
@@ -126,4 +106,15 @@ public class LeaderboardController {
         leaderboardTable.setItems(observableResult);
     }
 
+    public void easyLeaderboard(ActionEvent actionEvent) {
+        printLeaderboard("easy");
+    }
+
+    public void normalLeaderboard(ActionEvent actionEvent) {
+        printLeaderboard("normal");
+    }
+
+    public void hardLeaderboard(ActionEvent actionEvent) {
+        printLeaderboard("hard");
+    }
 }
