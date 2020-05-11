@@ -8,14 +8,19 @@ import lombok.Data;
 public class Result {
         @Id
         @GeneratedValue
-        private Long id;
+        public Long id;
 
-        @Column(nullable = false)
-        private String name;
+        @Column()
+        public String name;
 
-        @Column(nullable = false)
-        private String startingDate;
+        @Column()
+        public String startingDate;
 
-        @Column(nullable = false)
-        private float secondsTaken;
+        @Column()
+        public float secondsTaken;
+
+        @Column()
+        public boolean didwin;
+
+
 }
