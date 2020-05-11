@@ -14,9 +14,10 @@ public class ManageField {
         return field;
     }
 
-    public static void initField(int numberOfFields, int numberOfMines){
+    public void initField(int numberOfFields, int numberOfMines){
         ManageField.numberOfFields = numberOfFields;
         ManageField.numberOfMines = numberOfMines;
+
         field = new Field[numberOfFields][numberOfFields];
 
         for(int i = 0; i < numberOfFields; i++){
@@ -28,7 +29,7 @@ public class ManageField {
         randomizeMines();
     }
 
-    public static boolean flagAField(int rownum, int colnum){
+    public boolean flagAField(int rownum, int colnum){
         if( field[rownum][colnum].isClicked() ) {
             return false;
         }
@@ -38,7 +39,7 @@ public class ManageField {
         }
     }
 
-    public static boolean openAField(int rownum, int colnum){
+    public boolean openAField(int rownum, int colnum){
         if(field[rownum][colnum].isClicked() ){
             return false;
         }
@@ -52,7 +53,7 @@ public class ManageField {
         }
     }
 
-    public static void randomizeMines(){ //Assigns the mines randomly on the minefield
+    public void randomizeMines(){ //Assigns the mines randomly on the minefield
         logger.trace("randomizeMines() started");
         for( int i = 0; i < numberOfMines; i++){
             int randomx = (int)(Math.random() * numberOfFields);
@@ -70,7 +71,7 @@ public class ManageField {
     }
 
 
-    private static void setNeighbours(){
+    private void setNeighbours(){
         for( int i = 0; i < field.length; i++){
             for( int j = 0; j< field.length; j++){
                 if(field[i][j].isMine()){
@@ -84,7 +85,7 @@ public class ManageField {
         }
     }
 
-    public static int[][] getNeighboursIndexes(int row, int col){
+    public int[][] getNeighboursIndexes(int row, int col){
         int[][] neighbours;
         int rowcount = 0;
 
@@ -115,7 +116,7 @@ public class ManageField {
         return neighbours;
     }
 
-    private static int[][] getNotCheckedIndexes(int row, int col){
+    private int[][] getNotCheckedIndexes(int row, int col){
         int[][] neighbours;
         int rowcount = 0;
 
@@ -146,7 +147,7 @@ public class ManageField {
         return neighbours;
     }
 
-    private static void openZeros(int rownum, int colnum ) {
+    private void openZeros(int rownum, int colnum ) {
 
         int[][] neighbours = getNotCheckedIndexes(rownum, colnum);
 
@@ -165,7 +166,7 @@ public class ManageField {
         }
     }
 
-    public static boolean withinGrid(int colNum, int rowNum) {
+    public boolean withinGrid(int colNum, int rowNum) {
 
         if((colNum < 0) || (rowNum <0) || colNum >= numberOfFields || rowNum >= numberOfFields ) {
             return false;
@@ -175,7 +176,7 @@ public class ManageField {
         }
     }
 
-    public static boolean didwin() {
+    public boolean didwin() {
         int numberOfClicked = 0;
 
         for(int i = 0; i < numberOfFields; i++){
@@ -194,7 +195,7 @@ public class ManageField {
         }
     }
 
-    public static boolean didlost() {
+    public boolean didlost() {
 
         for( int i = 0; i < numberOfFields; i++){
             for( int j = 0; j< numberOfFields; j++){
