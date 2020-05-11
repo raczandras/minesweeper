@@ -36,7 +36,7 @@ public class ManageField {
     /**
      * Initializes the field after a difficulty has been selected.
      */
-    public void initField(int numberOfFields, int numberOfMines){
+    public static void initField(int numberOfFields, int numberOfMines){
         ManageField.numberOfFields = numberOfFields;
         ManageField.numberOfMines = numberOfMines;
 
@@ -47,7 +47,7 @@ public class ManageField {
                 field[i][j] = new Field();
             }
         }
-
+        logger.trace("The field has been initialized");
         randomizeMines();
     }
 
@@ -56,12 +56,13 @@ public class ManageField {
      *
      * @return true if the field hasn't been clicked before, false if it was
      */
-    public boolean flagAField(int rownum, int colnum){
+    public static boolean flagAField(int rownum, int colnum){
         if( field[rownum][colnum].isClicked() ) {
             return false;
         }
         else{
             field[rownum][colnum].setFlagged( !field[rownum][colnum].isFlagged() );
+            logger.trace("The field at {} {} has been flagged",rownum,colnum);
             return true;
         }
     }
@@ -71,13 +72,14 @@ public class ManageField {
      *
      * @return true if the field hasn't been clicked before, false if it was
      */
-    public boolean openAField(int rownum, int colnum){
+    public static boolean openAField(int rownum, int colnum){
         if(field[rownum][colnum].isClicked() ){
             return false;
         }
         else{
             field[rownum][colnum].setFlagged(false);
             field[rownum][colnum].setClicked(true);
+            logger.trace("The field at {} {} has been opened",rownum,colnum);
             if( field[rownum][colnum].getNeighborMines() == 0 ) {
                 openZeros(rownum, colnum);
             }
@@ -88,7 +90,7 @@ public class ManageField {
     /**
      * Assigns mines randomly on the minefield.
      */
-    public void randomizeMines(){
+    public static void randomizeMines(){
         logger.trace("randomizeMines() started");
         for( int i = 0; i < numberOfMines; i++){
             int randomx = (int)(Math.random() * numberOfFields);
@@ -101,14 +103,14 @@ public class ManageField {
                 field[randomx][randomy].setMine(true);
             }
         }
-        logger.trace("adding mines finished");
+        logger.trace("Randomizing mines finished");
         setNeighbours();
     }
 
     /**
      * Sets every field's neighboursMines variable.
      */
-    private void setNeighbours(){
+    private static void setNeighbours(){
         for( int i = 0; i < field.length; i++){
             for( int j = 0; j< field.length; j++){
                 if(field[i][j].isMine()){
@@ -120,6 +122,7 @@ public class ManageField {
                 }
             }
         }
+        logger.trace("Neighbours are set. Let the game begin.");
     }
 
     /**
@@ -129,7 +132,7 @@ public class ManageField {
      * @param col the field's column number
      * @return a 2d array containing the indexes of a field's neighbours
      */
-    public int[][] getNeighboursIndexes(int row, int col){
+    public static int[][] getNeighboursIndexes(int row, int col){
         int[][] neighbours;
         int rowcount = 0;
 
@@ -168,7 +171,7 @@ public class ManageField {
      * @param col the field's column number
      * @return {@code neighbours} a 2d array containing the not checked neighbours indexes of a field
      */
-    private int[][] getNotCheckedIndexes(int row, int col){
+    private static int[][] getNotCheckedIndexes(int row, int col){
         int[][] neighbours;
         int rowcount = 0;
 
@@ -202,7 +205,7 @@ public class ManageField {
     /**
      * Opens a field's neighbours if their neighbourMines variable is 0.
      */
-    private void openZeros(int rownum, int colnum ) {
+    private static void openZeros(int rownum, int colnum ) {
 
         int[][] neighbours = getNotCheckedIndexes(rownum, colnum);
 
@@ -226,7 +229,7 @@ public class ManageField {
      *
      * @return true if the index is part of the minefield, and false is it's not
      */
-    public boolean withinGrid(int colNum, int rowNum) {
+    public static boolean withinGrid(int colNum, int rowNum) {
 
         if((colNum < 0) || (rowNum <0) || colNum >= numberOfFields || rowNum >= numberOfFields ) {
             return false;
@@ -241,7 +244,7 @@ public class ManageField {
      *
      * @return true if the player won, and false if not.
      */
-    public boolean didwin() {
+    public static boolean didwin() {
         int numberOfClicked = 0;
 
         for(int i = 0; i < numberOfFields; i++){
@@ -253,6 +256,7 @@ public class ManageField {
         }
 
         if( numberOfClicked == (numberOfFields*numberOfFields - numberOfMines) ){
+            logger.trace("The player has won the game.");
             return true;
         }
         else {
@@ -265,11 +269,12 @@ public class ManageField {
      *
      * @return true if the player lost, and false if not.
      */
-    public boolean didlost() {
+    public static boolean didlost() {
 
         for( int i = 0; i < numberOfFields; i++){
             for( int j = 0; j< numberOfFields; j++){
                 if(field[i][j].isMine() && field[i][j].isClicked()){
+                    logger.trace("The player has lost the game.");
                     return true;
                 }
             }
