@@ -6,7 +6,7 @@
 <?import javafx.scene.control.Label?>
 
 <?import javafx.scene.control.TextField?>
-<VBox prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LeaderboardController">
+<VBox prefHeight="200.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.aftergameController">
     <children>
         <AnchorPane maxHeight="200.0" maxWidth="200.0" minHeight="200.0" minWidth="200.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
             <children>
