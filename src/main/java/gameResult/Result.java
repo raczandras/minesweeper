@@ -19,6 +19,9 @@ public class Result {
         @Column( nullable = false)
         private String name;
 
+        @Column( nullable = false)
+        private String difficulty;
+
         /**
          * The timestamp when the game was started.
          */
