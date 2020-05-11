@@ -1,4 +1,8 @@
 package gameResult;
+import gameplayLogic.ManageField;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -7,13 +11,15 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class Leaderboard {
-    static LocalDateTime startingDate;
-    static long startTime;
-    static long endTime;
-    static boolean didwin;
-    static EntityManagerFactory emf = Persistence.createEntityManagerFactory("minesweeper");
+    private static final Logger logger = LoggerFactory.getLogger(ManageField.class);
 
-    public static void makeNewResult(String name){
+    private LocalDateTime startingDate;
+    private long startTime;
+    private long endTime;
+    private static boolean didwin;
+    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("minesweeper");
+
+    public void makeNewResult(String name){
         endTime = System.currentTimeMillis();
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -27,7 +33,7 @@ public class Leaderboard {
         saveResult(result);
     }
 
-    private static void saveResult( Result result){
+    public void saveResult( Result result){
         EntityManager em = emf.createEntityManager();
         try {
                 em.getTransaction().begin();
@@ -39,7 +45,7 @@ public class Leaderboard {
         }
     }
 
-    public static List<Result> getResults() {
+    public List<Result> getResults() {
         EntityManager em = emf.createEntityManager();
         try {
             return em.createQuery("SELECT r FROM Result r WHERE r.didwin = true ORDER BY r.secondsTaken", Result.class)
@@ -50,12 +56,12 @@ public class Leaderboard {
         }
     }
 
-    public static void initStartingDate(){
+    public void initStartingDate(){
         startingDate = LocalDateTime.now();
         startTime = System.currentTimeMillis();
     }
 
-    public static void setDidwin(boolean didwin) {
+    public void setDidwin(boolean didwin) {
         Leaderboard.didwin = didwin;
     }
 }
