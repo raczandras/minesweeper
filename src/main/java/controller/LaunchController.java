@@ -18,8 +18,9 @@ public class LaunchController {
     private static final Logger logger = LoggerFactory.getLogger(LaunchController.class);
 
     public void easySelected(ActionEvent actionEvent) throws IOException {
-        logger.trace("The chosen difficulty is easy.");
+        logger.trace("The chosen difficulty is easy. Loading next scene...");
         ManageField.initField(9,10);
+        Leaderboard.setDifficulty("easy");
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/easymode.fxml"));
         Parent root = fxmlLoader.load();
@@ -32,8 +33,9 @@ public class LaunchController {
     }
 
     public void normalSelected(ActionEvent actionEvent) throws IOException{
-        logger.trace("The chosen difficulty is normal.");
+        logger.trace("The chosen difficulty is normal. Loading next scene...");
         ManageField.initField(12,20);
+        Leaderboard.setDifficulty("normal");
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/normalmode.fxml"));
         Parent root = fxmlLoader.load();
@@ -45,8 +47,9 @@ public class LaunchController {
     }
 
     public void hardSelected(ActionEvent actionEvent) throws IOException{
-        logger.trace("The chosen difficulty is hard.");
+        logger.trace("The chosen difficulty is hard. Loading next scene...");
         ManageField.initField(15,40);
+        Leaderboard.setDifficulty("hard");
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/hardmode.fxml"));
         Parent root = fxmlLoader.load();
@@ -58,13 +61,14 @@ public class LaunchController {
     }
 
     public void leaderboardSelected(ActionEvent actionEvent) throws IOException{
+        logger.trace("Leaderboard selected. Loading the leaderboard...");
+        Leaderboard.setDifficulty("leaderboard");
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/leaderboard.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
-        //LeaderboardController.printLeaderboard();
 
     }
 
