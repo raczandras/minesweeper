@@ -17,6 +17,12 @@
         </developer>
     </developers>
 
+    <scm>
+        <url>https://github.com/raczandras/minesweeper</url>
+        <connection>scm:git:git://github.com/raczandras/minesweeper.git</connection>
+        <developerConnection>scm:git:git@github.com:raczandras/minesweeper.git</developerConnection>
+    </scm>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
