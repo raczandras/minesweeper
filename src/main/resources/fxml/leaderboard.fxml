@@ -16,7 +16,7 @@
             <columns>
                 <TableColumn fx:id="name" prefWidth="100.0" text="name" />
                 <TableColumn fx:id="startingDate" prefWidth="200.0" text="startingDate" />
-                <TableColumn fx:id="secondsTaken" prefWidth="100.0" text="secondsTaken" />
+                <TableColumn fx:id="secondsTaken" prefWidth="100.0" text="Duration" />
             </columns>
         </TableView>
         <Label layoutX="175.0" layoutY="1.0" text="Leaderboard">
