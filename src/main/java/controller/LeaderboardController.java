@@ -53,7 +53,7 @@ public class LeaderboardController {
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
-            printLeaderboard();
+            fxmlLoader.<LeaderboardController>getController().printResults();
         }
     }
 
@@ -62,12 +62,8 @@ public class LeaderboardController {
     }
 
     @FXML
-    public void printLeaderboard(){
+    public void printResults(){
         List<Result> topList = Leaderboard.getResults();
-
-        //name = new TableColumn<Result, String>();
-        //startingDate = new TableColumn<Result, String>();
-        //duration = new TableColumn<Result, Float>();
 
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         startingDate.setCellValueFactory(new PropertyValueFactory<>("startingDate"));
@@ -128,7 +124,6 @@ public class LeaderboardController {
         observableResult.addAll(topList);
 
         leaderboardTable.setItems(observableResult);
-
     }
 
 }
