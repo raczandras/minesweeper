@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import java.util.ArrayList?>
-<VBox fillWidth="false" prefHeight="300.0" prefWidth="270.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.gameplayController">
+<VBox fillWidth="false" prefHeight="300.0" prefWidth="270.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameplayController">
     <children>
         <AnchorPane maxHeight="25.0" maxWidth="-1.0" prefHeight="26.0" prefWidth="270.0">
             <children>
@@ -275,7 +275,8 @@
 
         <AnchorPane prefHeight="200.0" prefWidth="280.0">
             <children>
-                <Button fx:id="forfeit" layoutX="60.0" layoutY="8.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" onAction="#forfeitAction" text="Forfeit" />
+                <Button fx:id="forfeitButton" layoutX="60.0" layoutY="8.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" onAction="#forfeitAction" text="Forfeit" />
+                <Button fx:id="continueButton" visible="false" layoutX="60.0" layoutY="8.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" onAction="#continueAction" text="Continue" />
             </children>
         </AnchorPane>
     </children>
