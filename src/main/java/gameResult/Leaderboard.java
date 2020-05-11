@@ -81,10 +81,10 @@ public class Leaderboard {
     }
 
     /**
-     * Returns the 10 best results with respect to the time
+     * Returns the 10 best easy difficulty results with respect to the time
      * spent for winning the game.
      *
-     * @return the list of the 10 best results with respect
+     * @return the list of the 10 best easy difficulty results with respect
      * to the time spent for winning the game
      */
     public static List<Result> getEasyResults() {
@@ -100,6 +100,13 @@ public class Leaderboard {
         }
     }
 
+    /**
+     * Returns the 10 best normal difficulty results with respect to the time
+     * spent for winning the game.
+     *
+     * @return the list of the 10 best normal difficulty results with respect
+     * to the time spent for winning the game
+     */
     public static List<Result> getNormalResults() {
         EntityManager em = emf.createEntityManager();
         try {
@@ -113,6 +120,13 @@ public class Leaderboard {
         }
     }
 
+    /**
+     * Returns the 10 best hard difficulty results with respect to the time
+     * spent for winning the game.
+     *
+     * @return the list of the 10 best hard difficulty results with respect
+     * to the time spent for winning the game
+     */
     public static List<Result> getHardResults() {
         EntityManager em = emf.createEntityManager();
         try {
@@ -141,6 +155,9 @@ public class Leaderboard {
         Leaderboard.didwin = didwin;
     }
 
+    /**
+     * Assigns a value to the difficulty variable.
+     */
     public static void setDifficulty(String difficulty) {
         Leaderboard.difficulty = difficulty;
     }

@@ -19,6 +19,9 @@ public class Result {
         @Column( nullable = false)
         private String name;
 
+        /**
+         * Indicates the difficulty of the game
+         */
         @Column( nullable = false)
         private String difficulty;
 
