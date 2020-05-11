@@ -1,18 +1,36 @@
 package controller;
 
+import gameResult.Leaderboard;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+
+import java.io.IOException;
 import java.util.List;
 import gameplayLogic.Field;
 import gameplayLogic.FieldSetup;
+import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class gameplayController {
 
+    private static final Logger logger = LoggerFactory.getLogger(gameplayController.class);
+
     @FXML
     private List<List<Button>> buttonsList;
+
+    @FXML
+    private Button continueButton;
+
+    @FXML
+    private Button forfeitButton;
 
     public void clickAction(MouseEvent actionEvent){
         for( int i = 0; i < buttonsList.size(); i++){
@@ -36,11 +54,20 @@ public class gameplayController {
         lost();
     }
 
+    public void continueAction(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/aftergame.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+
+    }
+
     public void decideState(){
-        if( didwin() ){
+        if( FieldSetup.didwin() ){
             won();
         }
-        else if( didlost() ){
+        else if( FieldSetup.didlost() ){
             lost();
         }
         else{
@@ -66,40 +93,13 @@ public class gameplayController {
         }
     }
 
-    private boolean didlost() {
-        Field[][] field = FieldSetup.getField();
-        for( int i = 0; i < buttonsList.size(); i++){
-            for( int j = 0; j< buttonsList.get(i).size(); j++){
-                if(field[i][j].isMine() && field[i][j].isClicked()){
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
 
-    private boolean didwin() {
-        Field[][] field = FieldSetup.getField();
-        int numberOfClicked = 0;
-        int numberOfMines = FieldSetup.getNumberOfMines();
-
-        for(int i = 0; i < buttonsList.size(); i++){
-            for(int j = 0; j < buttonsList.get(i).size(); j++){
-                if( field[i][j].isClicked() ){
-                    numberOfClicked++;
-                }
-            }
-        }
-        if( numberOfClicked == (buttonsList.size()*buttonsList.size() - numberOfMines) ){
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
 
     public void lost(){
+        logger.trace("The player lost!");
         Field[][] field = FieldSetup.getField();
+        forfeitButton.setVisible(false);
+        continueButton.setVisible(true);
 
         for( int i = 0; i < buttonsList.size(); i++){
             for( int j = 0; j< buttonsList.get(i).size(); j++){
@@ -112,11 +112,14 @@ public class gameplayController {
                 buttonsList.get(i).get(j).setDisable(true);
             }
         }
-        System.out.println("You lost!");
+        Leaderboard.setDidwin(false);
     }
 
     public void won(){
+        logger.trace("The player won!");
         Field[][] field = FieldSetup.getField();
+        forfeitButton.setVisible(false);
+        continueButton.setVisible(true);
 
         for( int i = 0; i < buttonsList.size(); i++){
             for( int j = 0; j< buttonsList.get(i).size(); j++){
@@ -129,6 +132,6 @@ public class gameplayController {
                 buttonsList.get(i).get(j).setDisable(true);
             }
         }
-        System.out.println("You Won");
+        Leaderboard.setDidwin(true);
     }
 }
