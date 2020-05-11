@@ -5,14 +5,6 @@ import org.slf4j.LoggerFactory;
 
 public class FieldSetup {
 
-    public static int getNumberOfFields() {
-        return numberOfFields;
-    }
-
-    public static int getNumberOfMines() {
-        return numberOfMines;
-    }
-
     private static int numberOfFields;
     private static int numberOfMines;
     public static Field[][] field;
@@ -193,6 +185,7 @@ public class FieldSetup {
                 }
             }
         }
+
         if( numberOfClicked == (numberOfFields*numberOfFields - numberOfMines) ){
             return true;
         }

@@ -21,5 +21,4 @@ public class Result {
 
         @Column( nullable = false)
         private boolean didwin;
-        
 }
