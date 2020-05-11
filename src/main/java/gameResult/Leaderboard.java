@@ -2,29 +2,29 @@ package gameResult;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class Leaderboard {
-
+    static LocalDateTime startingDate;
+    static long startTime;
+    static long endTime;
+    static boolean didwin;
     static EntityManagerFactory emf = Persistence.createEntityManagerFactory("minesweeper");
 
-    public static void makeNewResult(LocalDateTime startingDate, long startTime, long endTime){
+    public static void makeNewResult(String name){
+        endTime = System.currentTimeMillis();
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String formattedDate = startingDate.format(formatter);
+
         Result result = new Result();
-        float secondsTook = (endTime - startTime) / 1000F;
-        String name;
-        Scanner sc = new Scanner(System.in);
-        System.out.println("What's your name?");
-        name = sc.nextLine();
 
         result.setName(name);
-        result.setSecondsTaken(secondsTook);
-        result.setStartingDate(formattedDate);
+        result.setSecondsTaken( (endTime - startTime) / 1000F);
+        result.setStartingDate(startingDate.format(formatter) );
+        result.setDidwin(didwin);
         saveResult(result);
-        getResults();
     }
 
     private static void saveResult( Result result){
@@ -39,14 +39,23 @@ public class Leaderboard {
         }
     }
 
-    private static void getResults() {
+    public static List<Result> getResults() {
         EntityManager em = emf.createEntityManager();
         try {
-            System.out.println("Displaying Leaderboard:\n");
-            em.createQuery("SELECT r FROM Result r ORDER BY r.id", Result.class)
-                    .getResultList().forEach(System.out::println);
+            return em.createQuery("SELECT r FROM Result r WHERE r.didwin = true ORDER BY r.secondsTaken", Result.class)
+                    .setMaxResults(10)
+                    .getResultList();
         } finally {
             em.close();
         }
+    }
+
+    public static void initStartingDate(){
+        startingDate = LocalDateTime.now();
+        startTime = System.currentTimeMillis();
+    }
+
+    public static void setDidwin(boolean didwin) {
+        Leaderboard.didwin = didwin;
     }
 }
