@@ -16,6 +16,6 @@ Run with the following commands, from the project's root directory:
 
 &nbsp;
 
-Developers:
+Developer:
 
 - Rácz András
