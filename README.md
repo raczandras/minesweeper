@@ -14,6 +14,9 @@ Run with the following commands, from the project's root directory:
 
 &nbsp;
 
+You will either need to configure the resources/META-INF/persistence.xml file to use your database,
+or ask permission from me to use mine.
+
 &nbsp;
 
 Developer:
