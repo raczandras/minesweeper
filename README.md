@@ -1,4 +1,3 @@
-#minesweeper
 A simple minesweeper game for my Software Engineering class.
 
 &nbsp;
