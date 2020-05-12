@@ -24,6 +24,7 @@
                 <Font size="22.0"/>
             </font>
         </Label>
-        <Button fx:id="exitButton" layoutX="195.0" layoutY="500.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" onAction="#exitSelected" text="Exit" />
+        <Button fx:id="menuButton" layoutX="150.0" layoutY="500.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" onAction="#mainmenuSelected" text="Main Menu" />
+        <Button fx:id="exitButton" layoutX="260.0" layoutY="500.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" onAction="#exitSelected" text="Exit" />
     </children>
 </Pane>
