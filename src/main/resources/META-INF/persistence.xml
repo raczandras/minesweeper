@@ -5,7 +5,7 @@
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://remotemysql.com:3306/hU5iGU4rGd"/>
             <property name="javax.persistence.jdbc.user" value="hU5iGU4rGd"/>
-            <property name="javax.persistence.jdbc.password" value="9q1e6uT8Zp"/>
+            <property name="javax.persistence.jdbc.password" value="${db.password}"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
         </properties>
