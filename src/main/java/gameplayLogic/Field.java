@@ -30,5 +30,4 @@ public class Field {
      * Indicates whether the field was checked before by the program or not.
      */
     private boolean wasChecked = false;
-
 }

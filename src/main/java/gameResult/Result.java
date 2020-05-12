@@ -20,7 +20,7 @@ public class Result {
         private String name;
 
         /**
-         * Indicates the difficulty of the game
+         * Indicates the difficulty of the game.
          */
         @Column( nullable = false)
         private String difficulty;

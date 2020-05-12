@@ -32,25 +32,8 @@ public class GameplayController {
     @FXML
     private Button forfeitButton;
 
-    public void clickAction(MouseEvent actionEvent){
-        for( int i = 0; i < buttonsList.size(); i++){
-            for( int j = 0; j< buttonsList.get(i).size(); j++){
-                if( actionEvent.getSource().equals(buttonsList.get(i).get(j))){
-                    if(actionEvent.getButton() == MouseButton.SECONDARY ){
-                        if( ManageField.flagAField(i,j)){
-                            decideState();
-                        }
-                    }
-                    else if(ManageField.openAField(i,j)) {
-                            decideState();
-                    }
-                    break;
-                }
-            }
-        }
-    }
-
     public void forfeitAction(ActionEvent actionEvent){
+        logger.trace("The user forfeited the game.");
         lost();
     }
 
@@ -60,7 +43,23 @@ public class GameplayController {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
+    }
 
+    public void clickedAField(MouseEvent actionEvent){
+        for( int i = 0; i < buttonsList.size(); i++){
+            for( int j = 0; j< buttonsList.get(i).size(); j++){
+                if( actionEvent.getSource().equals(buttonsList.get(i).get(j))){
+                    if(actionEvent.getButton() == MouseButton.SECONDARY ){
+                         ManageField.flagAField(i,j);
+                            decideState();
+                    }
+                    else if(ManageField.openAField(i,j)) {
+                            decideState();
+                    }
+                    break;
+                }
+            }
+        }
     }
 
     public void decideState(){
@@ -72,6 +71,38 @@ public class GameplayController {
         }
         else{
             printState();
+        }
+    }
+
+    public void won(){
+        logger.trace("The player won!");
+        forfeitButton.setVisible(false);
+        continueButton.setVisible(true);
+        printEndState();
+        Leaderboard.setDidwin(true);
+    }
+
+    public void lost(){
+        logger.trace("The player lost!");
+        forfeitButton.setVisible(false);
+        continueButton.setVisible(true);
+        printEndState();
+        Leaderboard.setDidwin(false);
+    }
+
+    public void printEndState(){
+        Field[][] field = ManageField.getField();
+
+        for( int i = 0; i < buttonsList.size(); i++){
+            for( int j = 0; j< buttonsList.get(i).size(); j++){
+                if(field[i][j].isMine()){
+                    buttonsList.get(i).get(j).setText("M");
+                }
+                else{
+                    buttonsList.get(i).get(j).setText(String.valueOf(field[i][j].getNeighborMines()));
+                }
+                buttonsList.get(i).get(j).setDisable(true);
+            }
         }
     }
 
@@ -91,45 +122,5 @@ public class GameplayController {
                 }
             }
         }
-    }
-
-    public void lost(){
-        logger.trace("The player lost!");
-        Field[][] field = ManageField.getField();
-        forfeitButton.setVisible(false);
-        continueButton.setVisible(true);
-
-        for( int i = 0; i < buttonsList.size(); i++){
-            for( int j = 0; j< buttonsList.get(i).size(); j++){
-                if(field[i][j].isMine()){
-                    buttonsList.get(i).get(j).setText("M");
-                }
-                else{
-                    buttonsList.get(i).get(j).setText(String.valueOf(field[i][j].getNeighborMines()));
-                }
-                buttonsList.get(i).get(j).setDisable(true);
-            }
-        }
-        Leaderboard.setDidwin(false);
-    }
-
-    public void won(){
-        logger.trace("The player won!");
-        Field[][] field = ManageField.getField();
-        forfeitButton.setVisible(false);
-        continueButton.setVisible(true);
-
-        for( int i = 0; i < buttonsList.size(); i++){
-            for( int j = 0; j< buttonsList.get(i).size(); j++){
-                if(field[i][j].isMine()){
-                    buttonsList.get(i).get(j).setText("M");
-                }
-                else{
-                    buttonsList.get(i).get(j).setText(String.valueOf(field[i][j].getNeighborMines()));
-                }
-                buttonsList.get(i).get(j).setDisable(true);
-            }
-        }
-        Leaderboard.setDidwin(true);
     }
 }

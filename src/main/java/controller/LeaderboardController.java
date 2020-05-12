@@ -38,73 +38,6 @@ public class LeaderboardController {
         System.exit(0);
     }
 
-    public void printLeaderboard( String difficulty){
-        logger.trace("Printing the results onto the leaderboard.");
-        List<Result> topList;
-
-        topList = Leaderboard.getResults(difficulty);
-
-        name.setCellValueFactory(new PropertyValueFactory<>("name"));
-        startingDate.setCellValueFactory(new PropertyValueFactory<>("startingDate"));
-        secondsTaken.setCellValueFactory(new PropertyValueFactory<>("secondsTaken"));
-
-        secondsTaken.setCellFactory(column -> {
-            TableCell<Result, Float> cell = new TableCell<Result, Float>() {
-
-                @Override
-                protected void updateItem(Float item, boolean empty) {
-                    super.updateItem(item, empty);
-                    if(empty) {
-                        setText(null);
-                    }
-                    else {
-                        setText(Float.toString(item));
-                    }
-                }
-            };
-            return cell;
-        });
-
-        startingDate.setCellFactory(column -> {
-            TableCell<Result, String> cell = new TableCell<Result, String>() {
-
-                @Override
-                protected void updateItem(String item, boolean empty) {
-                    super.updateItem(item, empty);
-                    if(empty) {
-                        setText(null);
-                    }
-                    else {
-                        setText(item);
-                    }
-                }
-            };
-            return cell;
-        });
-
-        name.setCellFactory(column -> {
-            TableCell<Result, String> cell = new TableCell<Result, String>() {
-
-                @Override
-                protected void updateItem(String item, boolean empty) {
-                    super.updateItem(item, empty);
-                    if(empty) {
-                        setText(null);
-                    }
-                    else {
-                        setText(item);
-                    }
-                }
-            };
-            return cell;
-        });
-
-        ObservableList<Result> observableResult = FXCollections.observableArrayList();
-        observableResult.addAll(topList);
-
-        leaderboardTable.setItems(observableResult);
-    }
-
     public void easyLeaderboard(ActionEvent actionEvent) {
         printLeaderboard("easy");
     }
@@ -123,5 +56,19 @@ public class LeaderboardController {
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    public void printLeaderboard( String difficulty){
+        logger.trace("Printing the results onto the leaderboard.");
+        List<Result> topList = Leaderboard.getResults(difficulty);
+
+        name.setCellValueFactory(new PropertyValueFactory<>("name"));
+        startingDate.setCellValueFactory(new PropertyValueFactory<>("startingDate"));
+        secondsTaken.setCellValueFactory(new PropertyValueFactory<>("secondsTaken"));
+
+        ObservableList<Result> observableResult = FXCollections.observableArrayList();
+        observableResult.addAll(topList);
+
+        leaderboardTable.setItems(observableResult);
     }
 }

@@ -37,9 +37,38 @@ public class Leaderboard {
      */
     private static boolean didwin;
 
+    /**
+     * Indicates the difficulty of the game.
+     */
     private static String difficulty;
 
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("minesweeper");
+
+    /**
+     * Assigns true to the didwin variable if the player lost or true if the player won.
+     *
+     * @param didwin indicates whether the player has won or lost the game
+     */
+    public static void setDidwin(boolean didwin) {
+        Leaderboard.didwin = didwin;
+    }
+
+    /**
+     * Assigns a value to the difficulty variable.
+     *
+     * @param difficulty indicates the difficulty of the game
+     */
+    public static void setDifficulty(String difficulty) {
+        Leaderboard.difficulty = difficulty;
+    }
+
+    /**
+     * Initializes the starting timestamp.
+     */
+    public static void initStartingDate(){
+        startingDate = LocalDateTime.now();
+        startTime = System.currentTimeMillis();
+    }
 
     /**
      * Makes a new result.
@@ -63,7 +92,7 @@ public class Leaderboard {
     }
 
     /**
-     * Uploads the result into the database
+     * Uploads the result into the database.
      *
      * @param result the result that needs to be uploaded
      */
@@ -83,6 +112,7 @@ public class Leaderboard {
      * Returns the 10 best easy difficulty results with respect to the time
      * spent for winning the game.
      *
+     * @param difficulty indicates which difficulty's leaderboard to get
      * @return the list of the 10 best easy difficulty results with respect
      * to the time spent for winning the game
      */
@@ -97,28 +127,5 @@ public class Leaderboard {
         } finally{
             em.close();
         }
-    }
-
-
-    /**
-     * Initializes the starting timestamp.
-     */
-    public static void initStartingDate(){
-        startingDate = LocalDateTime.now();
-        startTime = System.currentTimeMillis();
-    }
-
-    /**
-     * Assigns true to the didwin variable if the player lost or true if the player won.
-     */
-    public static void setDidwin(boolean didwin) {
-        Leaderboard.didwin = didwin;
-    }
-
-    /**
-     * Assigns a value to the difficulty variable.
-     */
-    public static void setDifficulty(String difficulty) {
-        Leaderboard.difficulty = difficulty;
     }
 }

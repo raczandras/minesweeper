@@ -3,13 +3,15 @@ package gameplayLogic;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+
 /**
  * Class deals with the logic of the game.
  */
 public class ManageField {
 
     /**
-     * Indicates how many fields there are in one row
+     * Indicates how many fields there are in one row.
      */
     private static int numberOfFields;
 
@@ -21,11 +23,12 @@ public class ManageField {
     /**
      * Contains the minefield itself.
      */
-    public static Field[][] field;
+    private static Field[][] field;
+
     private static final Logger logger = LoggerFactory.getLogger(ManageField.class);
 
     /**
-     * Returns the minefield
+     * Returns the minefield.
      *
      * @return the minefield
      */
@@ -35,6 +38,9 @@ public class ManageField {
 
     /**
      * Initializes the field after a difficulty has been selected.
+     *
+     * @param numberOfFields indicates the number of fields in a row
+     * @param numberOfMines indicates the number of mines on the minefield.
      */
     public static void initField(int numberOfFields, int numberOfMines){
         ManageField.numberOfFields = numberOfFields;
@@ -48,43 +54,6 @@ public class ManageField {
             }
         }
         logger.trace("The field has been initialized");
-        randomizeMines();
-    }
-
-    /**
-     * Flags or unflags a field if it's not clicked yet.
-     *
-     * @return true if the field hasn't been clicked before, false if it was
-     */
-    public static boolean flagAField(int rownum, int colnum){
-        if( field[rownum][colnum].isClicked() ) {
-            return false;
-        }
-        else{
-            field[rownum][colnum].setFlagged( !field[rownum][colnum].isFlagged() );
-            logger.trace("The field at {} {} has been flagged",rownum,colnum);
-            return true;
-        }
-    }
-
-    /**
-     * Opens a field if it hasn't been opened yet.
-     *
-     * @return true if the field hasn't been clicked before, false if it was
-     */
-    public static boolean openAField(int rownum, int colnum){
-        if(field[rownum][colnum].isClicked() ){
-            return false;
-        }
-        else{
-            field[rownum][colnum].setFlagged(false);
-            field[rownum][colnum].setClicked(true);
-            logger.trace("The field at {} {} has been opened",rownum,colnum);
-            if( field[rownum][colnum].getNeighborMines() == 0 ) {
-                openZeros(rownum, colnum);
-            }
-            return true;
-        }
     }
 
     /**
@@ -110,14 +79,14 @@ public class ManageField {
     /**
      * Sets every field's neighboursMines variable.
      */
-    private static void setNeighbours(){
+    public static void setNeighbours(){
         for( int i = 0; i < field.length; i++){
             for( int j = 0; j< field.length; j++){
                 if(field[i][j].isMine()){
 
-                    int[][] neighbours = getNeighboursIndexes(i,j);
-                    for(int[] neighbour : neighbours) {
-                        field[neighbour[0]][neighbour[1]].setNeighborMines(field[neighbour[0]][neighbour[1]].getNeighborMines() + 1);
+                    ArrayList<ArrayList<Integer>> neighbours = getNeighboursIndexes(i,j);
+                    for(ArrayList<Integer> neighbour : neighbours) {
+                        field[neighbour.get(0)][neighbour.get(1)].setNeighborMines(field[neighbour.get(0)][neighbour.get(1)].getNeighborMines() + 1);
                     }
                 }
             }
@@ -126,98 +95,56 @@ public class ManageField {
     }
 
     /**
-     * Returns a 2d array containing the indexes of a field's neighbours.
+     * Flags or unflags a field if it's not clicked yet.
      *
-     * @param row the field's row number
-     * @param col the field's column number
-     * @return a 2d array containing the indexes of a field's neighbours
+     * @param rownum indicates the row number of the field
+     * @param colnum indicates column number of the field
      */
-    public static int[][] getNeighboursIndexes(int row, int col){
-        int[][] neighbours;
-        int rowcount = 0;
-
-        for(int colNum = col - 1; colNum <= (col + 1); colNum++  ) {
-            for (int rowNum = row - 1; rowNum <= (row + 1); rowNum++  ) {
-                if(!((colNum == col) && (rowNum == row))) {
-                    if(withinGrid (colNum, rowNum)) {
-                        rowcount++;
-                    }
-                }
-            }
+    public static void flagAField(int rownum, int colnum){
+        if( !field[rownum][colnum].isClicked() ) {
+            field[rownum][colnum].setFlagged( !field[rownum][colnum].isFlagged() );
+            logger.trace("The field at {} {} has been flagged or unflagged",rownum,colnum);
         }
-        neighbours = new int[rowcount][2];
-        rowcount = 0;
-
-        for(int colNum = col - 1; colNum <= (col + 1); colNum++  ) {
-            for (int rowNum = row - 1; rowNum <= (row + 1); rowNum++  ) {
-                if(!((colNum == col) && (rowNum == row))) {
-                    if(withinGrid (colNum, rowNum)) {
-                        neighbours[rowcount][0] = rowNum;
-                        neighbours[rowcount][1] = colNum;
-                        rowcount++;
-                    }
-                }
-            }
-        }
-
-        return neighbours;
     }
 
-
     /**
-     * Returns a 2d array containing the not checked neighbours indexes of a field.
+     * Opens a field if it hasn't been opened yet.
      *
-     * @param row the field's row number
-     * @param col the field's column number
-     * @return {@code neighbours} a 2d array containing the not checked neighbours indexes of a field
+     * @param rownum indicates the row number of the field
+     * @param colnum indicates the column number of the field
+     * @return true if the field hasn't been clicked before, false if it was
      */
-    private static int[][] getNotCheckedIndexes(int row, int col){
-        int[][] neighbours;
-        int rowcount = 0;
-
-        for(int colNum = col - 1; colNum <= (col + 1); colNum++  ) {
-            for (int rowNum = row - 1; rowNum <= (row + 1); rowNum++  ) {
-                if(!((colNum == col) && (rowNum == row))) {
-                    if(withinGrid (colNum, rowNum) && !field[colNum][rowNum].isWasChecked() ) {
-                        rowcount++;
-                    }
-                }
-            }
+    public static boolean openAField(int rownum, int colnum){
+        if(field[rownum][colnum].isClicked() ){
+            return false;
         }
-        neighbours = new int[rowcount][2];
-        rowcount = 0;
-
-        for(int colNum = col - 1; colNum <= (col + 1); colNum++  ) {
-            for (int rowNum = row - 1; rowNum <= (row + 1); rowNum++  ) {
-                if(!((colNum == col) && (rowNum == row))) {
-                    if(withinGrid (colNum, rowNum) && !field[colNum][rowNum].isWasChecked() ) {
-                        neighbours[rowcount][0] = rowNum;
-                        neighbours[rowcount][1] = colNum;
-                        field[colNum][rowNum].setWasChecked(true);
-                        rowcount++;
-                    }
-                }
+        else{
+            field[rownum][colnum].setFlagged(false);
+            field[rownum][colnum].setClicked(true);
+            logger.trace("The field at {} {} has been opened",rownum,colnum);
+            if( field[rownum][colnum].getNeighborMines() == 0 ) {
+                openZeros(rownum, colnum);
             }
+            return true;
         }
-        return neighbours;
     }
 
     /**
      * Opens a field's neighbours if their neighbourMines variable is 0.
+     *
+     * @param rownum the field's row number
+     * @param colnum the field's column number
      */
-    private static void openZeros(int rownum, int colnum ) {
+    public static void openZeros(int rownum, int colnum ) {
+        ArrayList<ArrayList<Integer>> neighbours = getNotCheckedIndexes(rownum, colnum);
 
-        int[][] neighbours = getNotCheckedIndexes(rownum, colnum);
-
-        for (int[] neighbour : neighbours) {
-
-            int rowindex = neighbour[0];
-            int colindex = neighbour[1];
+        for (ArrayList<Integer> neighbour : neighbours) {
+            int rowindex = neighbour.get(0);
+            int colindex = neighbour.get(1);
 
             if (!field[rowindex][colindex].isClicked()) {
                 field[rowindex][colindex].setClicked(true);
             }
-
             if (field[rowindex][colindex].getNeighborMines() == 0) {
                 openZeros(rowindex, colindex );
             }
@@ -225,18 +152,21 @@ public class ManageField {
     }
 
     /**
-     * Checks if a given index is part of the minefield or not.
+     * Checks if the player has lost the game or not.
      *
-     * @return true if the index is part of the minefield, and false is it's not
+     * @return true if the player lost, and false if not.
      */
-    public static boolean withinGrid(int colNum, int rowNum) {
+    public static boolean didlost() {
 
-        if((colNum < 0) || (rowNum <0) || colNum >= numberOfFields || rowNum >= numberOfFields ) {
-            return false;
+        for( int i = 0; i < numberOfFields; i++){
+            for( int j = 0; j< numberOfFields; j++){
+                if(field[i][j].isMine() && field[i][j].isClicked()){
+                    logger.trace("The player has lost the game.");
+                    return true;
+                }
+            }
         }
-        else {
-            return true;
-        }
+        return false;
     }
 
     /**
@@ -265,20 +195,74 @@ public class ManageField {
     }
 
     /**
-     * Checks if the player has lost the game or not.
+     * Returns a 2d arrayList containing the indexes of a field's neighbours.
      *
-     * @return true if the player lost, and false if not.
+     * @param row the field's row number
+     * @param col the field's column number
+     * @return {@code neighbours} a 2d arrayList containing the indexes of a field's neighbours
      */
-    public static boolean didlost() {
+    public static ArrayList<ArrayList<Integer>> getNeighboursIndexes(int row, int col){
+        int rowcount = 0;
+        ArrayList<ArrayList<Integer>> neighbours = new ArrayList<>();
 
-        for( int i = 0; i < numberOfFields; i++){
-            for( int j = 0; j< numberOfFields; j++){
-                if(field[i][j].isMine() && field[i][j].isClicked()){
-                    logger.trace("The player has lost the game.");
-                    return true;
+        for(int colNum = col - 1; colNum <= (col + 1); colNum++  ) {
+            for (int rowNum = row - 1; rowNum <= (row + 1); rowNum++  ) {
+                if(!((colNum == col) && (rowNum == row))) {
+                    if(withinGrid (colNum, rowNum)) {
+                        neighbours.add(rowcount, new ArrayList<Integer>());
+                        neighbours.get(rowcount).add(0,rowNum);
+                        neighbours.get(rowcount).add(1,colNum);
+                        rowcount++;
+                    }
                 }
             }
         }
-        return false;
+        return neighbours;
+    }
+
+
+    /**
+     * Returns a 2d array containing the not checked neighbours indexes of a field.
+     *
+     * @param row the field's row number
+     * @param col the field's column number
+     * @return {@code neighbours} a 2d arrayList containing the not checked neighbours indexes of a field
+     */
+    public static ArrayList<ArrayList<Integer>> getNotCheckedIndexes(int row, int col){
+        ArrayList<ArrayList<Integer>> neighbours = new ArrayList<>();
+        int rowcount = 0;
+
+        for(int colNum = col - 1; colNum <= (col + 1); colNum++  ) {
+            for (int rowNum = row - 1; rowNum <= (row + 1); rowNum++  ) {
+                if(!((colNum == col) && (rowNum == row))) {
+                    if(withinGrid (colNum, rowNum) && !field[colNum][rowNum].isWasChecked() ){
+                        neighbours.add(rowcount, new ArrayList<Integer>());
+                        neighbours.get(rowcount).add(0,rowNum);
+                        neighbours.get(rowcount).add(1,colNum);
+
+                        field[colNum][rowNum].setWasChecked(true);
+                        rowcount++;
+                    }
+                }
+            }
+        }
+        return neighbours;
+    }
+
+    /**
+     * Checks if a given index is within the 2d array representing the minefield or not.
+     *
+     * @param colNum the starting column index
+     * @param rowNum the starting row index
+     * @return true if the index is part of the minefield, and false is it's not
+     */
+    public static boolean withinGrid(int colNum, int rowNum) {
+
+        if((colNum < 0) || (rowNum <0) || colNum >= numberOfFields || rowNum >= numberOfFields ) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 }

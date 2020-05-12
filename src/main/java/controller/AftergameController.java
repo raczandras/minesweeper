@@ -15,9 +15,9 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
-public class aftergameController {
+public class AftergameController {
 
-    private static final Logger logger = LoggerFactory.getLogger(aftergameController.class);
+    private static final Logger logger = LoggerFactory.getLogger(AftergameController.class);
 
     @FXML
     private TextField nameTextField;
