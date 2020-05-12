@@ -74,7 +74,6 @@ public class Leaderboard {
             em.getTransaction().begin();
             em.persist(result);
             em.getTransaction().commit();
-            getEasyResults();
         } finally{
             em.close();
         }
@@ -87,58 +86,19 @@ public class Leaderboard {
      * @return the list of the 10 best easy difficulty results with respect
      * to the time spent for winning the game
      */
-    public static List<Result> getEasyResults() {
+    public static List<Result> getResults(String difficulty) {
         EntityManager em = emf.createEntityManager();
+        logger.trace("Connecting to the database to get the results...");
         try {
-            logger.trace("Connecting to the database to get the results...");
             return em.createQuery("SELECT r FROM Result r WHERE r.didwin = true AND r.difficulty LIKE :difficulty ORDER BY r.secondsTaken", Result.class)
-                    .setParameter("difficulty", "easy")
+                    .setParameter("difficulty", difficulty)
                     .setMaxResults(10)
                     .getResultList();
-        } finally {
+        } finally{
             em.close();
         }
     }
 
-    /**
-     * Returns the 10 best normal difficulty results with respect to the time
-     * spent for winning the game.
-     *
-     * @return the list of the 10 best normal difficulty results with respect
-     * to the time spent for winning the game
-     */
-    public static List<Result> getNormalResults() {
-        EntityManager em = emf.createEntityManager();
-        try {
-            logger.trace("Connecting to the database to get the results...");
-            return em.createQuery("SELECT r FROM Result r WHERE r.didwin = true AND r.difficulty LIKE :difficulty ORDER BY r.secondsTaken", Result.class)
-                    .setParameter("difficulty", "normal")
-                    .setMaxResults(10)
-                    .getResultList();
-        } finally {
-            em.close();
-        }
-    }
-
-    /**
-     * Returns the 10 best hard difficulty results with respect to the time
-     * spent for winning the game.
-     *
-     * @return the list of the 10 best hard difficulty results with respect
-     * to the time spent for winning the game
-     */
-    public static List<Result> getHardResults() {
-        EntityManager em = emf.createEntityManager();
-        try {
-            logger.trace("Connecting to the database to get the results...");
-            return em.createQuery("SELECT r FROM Result r WHERE r.didwin = true AND r.difficulty LIKE :difficulty ORDER BY r.secondsTaken", Result.class)
-                    .setParameter("difficulty", "hard")
-                    .setMaxResults(10)
-                    .getResultList();
-        } finally {
-            em.close();
-        }
-    }
 
     /**
      * Initializes the starting timestamp.

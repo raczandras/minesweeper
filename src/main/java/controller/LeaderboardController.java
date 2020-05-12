@@ -42,15 +42,7 @@ public class LeaderboardController {
         logger.trace("Printing the results onto the leaderboard.");
         List<Result> topList;
 
-        if(difficulty.equalsIgnoreCase("easy") ) {
-            topList = Leaderboard.getEasyResults();
-        }
-        else if(difficulty.equalsIgnoreCase("normal")){
-            topList = Leaderboard.getNormalResults();
-        }
-        else{
-            topList = Leaderboard.getHardResults();
-        }
+        topList = Leaderboard.getResults(difficulty);
 
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         startingDate.setCellValueFactory(new PropertyValueFactory<>("startingDate"));
