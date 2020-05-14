@@ -1,8 +1,7 @@
 package gameResult;
-import gameplayLogic.ManageField;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -15,7 +14,7 @@ import java.util.List;
  * and getting the results.
  */
 public class Leaderboard {
-    private static final Logger logger = LoggerFactory.getLogger(ManageField.class);
+    private static final Logger logger = LoggerFactory.getLogger(Leaderboard.class);
 
     /**
      * The timestamp when the game was started.
@@ -23,12 +22,12 @@ public class Leaderboard {
     private static LocalDateTime startingDate;
 
     /**
-     * The timestamp when the game was started in miliseconds.
+     * The timestamp when the game was started in milliseconds.
      */
     private static long startTime;
 
     /**
-     * The timestamp when the game ended in miliseconds.
+     * The timestamp when the game ended in milliseconds.
      */
     private static long endTime;
 
@@ -42,7 +41,7 @@ public class Leaderboard {
      */
     private static String difficulty;
 
-    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("minesweeper");
+    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("minesweeper");
 
     /**
      * Assigns true to the didwin variable if the player lost or true if the player won.
@@ -87,6 +86,7 @@ public class Leaderboard {
         result.setStartingDate(startingDate.format(formatter) );
         result.setDidwin(didwin);
         result.setDifficulty(difficulty);
+
         saveResult(result);
         logger.trace("Result saved.");
     }
@@ -98,6 +98,7 @@ public class Leaderboard {
      */
     public static void saveResult( Result result){
         EntityManager em = emf.createEntityManager();
+
         try {
             logger.trace("Connecting to database...");
             em.getTransaction().begin();
@@ -109,15 +110,16 @@ public class Leaderboard {
     }
 
     /**
-     * Returns the 10 best easy difficulty results with respect to the time
+     * Returns the 10 best results of a difficulty type with respect to the time
      * spent for winning the game.
      *
      * @param difficulty indicates which difficulty's leaderboard to get
-     * @return the list of the 10 best easy difficulty results with respect
+     * @return the list of the 10 best results of a difficulty type with respect
      * to the time spent for winning the game
      */
     public static List<Result> getResults(String difficulty) {
         EntityManager em = emf.createEntityManager();
+
         logger.trace("Connecting to the database to get the results...");
         try {
             return em.createQuery("SELECT r FROM Result r WHERE r.didwin = true AND r.difficulty LIKE :difficulty ORDER BY r.secondsTaken", Result.class)
