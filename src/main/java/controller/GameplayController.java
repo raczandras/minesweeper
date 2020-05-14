@@ -51,7 +51,7 @@ public class GameplayController {
                 if( actionEvent.getSource().equals(buttonsList.get(i).get(j))){
                     if(actionEvent.getButton() == MouseButton.SECONDARY ){
                          ManageField.flagAField(i,j);
-                            decideState();
+                            printState();
                     }
                     else if(ManageField.openAField(i,j)) {
                             decideState();
