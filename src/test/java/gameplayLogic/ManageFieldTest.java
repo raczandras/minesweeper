@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ManageFieldTest {
 
     @Test
-    void AndOpenZerosAndGetNotCheckedIndexes(){
+    void testOpenZerosAndGetNotCheckedIndexes(){
         ManageField.initField(2,4);
         Field[][] field = new Field[2][2];
 
@@ -106,7 +106,7 @@ public class ManageFieldTest {
 
 
     @Test
-    void testDidlost() {
+    void testDidLost() {
         ManageField.initField(2,4);
         assertFalse(ManageField.didlost());
         ManageField.openAField(0,0);
@@ -121,7 +121,7 @@ public class ManageFieldTest {
     }
 
     @Test
-    void testDidwin() {
+    void testDidWin() {
         ManageField.initField(2,0);
         assertFalse(ManageField.didwin());
 
